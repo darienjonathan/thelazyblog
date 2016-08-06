@@ -63,6 +63,11 @@
 			    -o-transition: background-color 0.25s linear, color 0.25s linear;
 			    transition: background-color 0.25s linear, color 0.25s linear;
 		}
+			@media screen and (max-width: 600px) {
+				.columns{
+					height: 60vh;
+				}
+			}
 			.columns:hover{
 				background-color: rgba(10,76,235,0.75);
 			}
@@ -99,9 +104,6 @@
 		@media screen and (min-width: 40em){
 			.reveal {
 			    max-width: 100vw;
-			}
-			.columns {
-				height: 80vh;
 			}
 		}
 			.reveal>div{
