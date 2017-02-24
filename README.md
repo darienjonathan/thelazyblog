@@ -10,10 +10,8 @@
 
 ###URL Params
   * Optional:
-    * comment=[tinyint]. 例えば: comment=1/comment=0<br>
-    もし、commentパラメータはないと、comment=0　になります
-    * lang=[string]. 例えば: lang=jp/lang=en<br>
-    もし、langパラメータは：
+    * comment=[tinyint]. 例えば: comment=1/comment=0<br>もし、commentパラメータはないと、comment=0　になります
+    * lang=[string]. 例えば: lang=jp/lang=en<br>もし、langパラメータは：
       * jpじゃありません
       * なし<br>
       lang=en　になります
