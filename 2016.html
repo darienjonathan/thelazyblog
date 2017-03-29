@@ -301,14 +301,15 @@
 <script>
 
 	//button
-	document.getElementById('shareDialog').addEventListener('onclick', function(){
+	document.getElementById('shareDialog').addEventListener('click', function(){
+		console.log('woy');
 		FB.ui({
 		  method: 'share',
 		  href: 'https://developers.facebook.com/docs/',
 		}, function(response){});
 	});
 
-	document.getElementById('feedDialog').addEventListener('onclick', function(){
+	document.getElementById('feedDialog').addEventListener('click', function(){
 		FB.ui({
 		  method: 'feed',
 		  href: 'https://developers.facebook.com/docs/',
@@ -316,7 +317,7 @@
 		}, function(response){});
 	});
 
-	document.getElementById('sendDialog').addEventListener('onclick', function(){
+	document.getElementById('sendDialog').addEventListener('click', function(){
 		FB.ui({
 		  method: 'send',
 		  link: 'https://developers.facebook.com/docs/',
