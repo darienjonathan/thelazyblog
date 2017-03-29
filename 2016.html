@@ -12,7 +12,7 @@
   <meta property="og:description"   content="How was 2016? It was really a crazy roller-coaster year though. Not much events but every event happened was big. 2016 changed me and my future quite a bit." />
   <meta property="og:image"         content="https://darienjonathan.github.io/thelazyblog/assets/img/2016/header.JPG" />
 	
-	<!--Twitter-->
+	<!--Twitter Card-->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@darienjonathan">
 	<meta name="twitter:creator" content="@darienjonathan">
@@ -151,7 +151,7 @@
 </style>
 
 <body>	
-
+	<!--FB SDK-->
 	<script>
 	  window.fbAsyncInit = function() {
 	    FB.init({
@@ -170,8 +170,12 @@
 	     fjs.parentNode.insertBefore(js, fjs);
 	   }(document, 'script', 'facebook-jssdk'));
 	</script>
-
+	
+	<!--Twitter SDK-->
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+	<!--LINE SDK-->
+ 	<script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
 
 
 	<div class="post">
@@ -296,8 +300,9 @@
 		</p>
 
 		<div id="share" style="text-align: center; color: blue;">
-			<button id="shareDialog">shareDialog</button> | <button id="feedDialog">feedDialog</button> | <button id="sendDialog">sendDialog</button><br>
-			<a href="https://twitter.com/intent/tweet?text=2016%20from%20the%20perspective%20of%20my%20eyes" class="twitter-share-button" data-show-count="true" data-size="large">Tweet</a>
+			<!--FB--><button id="shareDialog">shareDialog</button> | <button id="feedDialog">feedDialog</button> | <button id="sendDialog">sendDialog</button><br><br>
+			<!--Twitter--><a href="https://twitter.com/intent/tweet?text=2016%20from%20the%20perspective%20of%20my%20eyes" class="twitter-share-button" data-show-count="true" data-size="large">Tweet</a><br><br>
+			<div class="line-it-button" data-lang="en" data-type="share-a" data-url="https://darienjonathan.github.io/thelazyblog/2016.html" style="display: none;"></div>
 		</div>
 
 		<a href="index.html"><button class="close-button" type="button">
