@@ -284,9 +284,8 @@
 			ダリエン・ジョナサン<br>	
 		</p>
 
-		<div class="fb-share-button" 
-		  data-href="https://darienjonathan.github.io/thelazyblog/2016.html" 
-			data-layout="button_count">
+		<div id="share" style="text-align: center; color: blue;">
+			<button id="shareDialog">shareDialog</button> | <button id="feedDialog">feedDialog</button> | <button id="sendDialog">sendDialog</button>
 		</div>
 
 		<a href="index.html"><button class="close-button" type="button">
@@ -300,6 +299,31 @@
 <script src="assets/js/motion-ui.js"></script>
 
 <script>
+
+	//button
+	document.getElementById('shareDialog').addEventListener('onclick', function(){
+		FB.ui({
+		  method: 'share',
+		  href: 'https://developers.facebook.com/docs/',
+		}, function(response){});
+	});
+
+	document.getElementById('feedDialog').addEventListener('onclick', function(){
+		FB.ui({
+		  method: 'feed',
+		  href: 'https://developers.facebook.com/docs/',
+		  caption: 'Ini Caption'
+		}, function(response){});
+	});
+
+	document.getElementById('sendDialog').addEventListener('onclick', function(){
+		FB.ui({
+		  method: 'send',
+		  link: 'https://developers.facebook.com/docs/',
+		});
+	});
+
+	//jq
 	$(document).ready(function(){
 		$(document).foundation();
 
