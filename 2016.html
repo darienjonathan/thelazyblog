@@ -305,14 +305,14 @@
 		console.log('woy');
 		FB.ui({
 		  method: 'share',
-		  href: 'https://developers.facebook.com/docs/',
+		  href: 'https://darienjonathan.github.io/thelazyblog/2016.html',
 		}, function(response){});
 	});
 
 	document.getElementById('feedDialog').addEventListener('click', function(){
 		FB.ui({
 		  method: 'feed',
-		  href: 'https://developers.facebook.com/docs/',
+		  link: 'https://darienjonathan.github.io/thelazyblog/2016.html',
 		  caption: 'Ini Caption'
 		}, function(response){});
 	});
@@ -320,7 +320,7 @@
 	document.getElementById('sendDialog').addEventListener('click', function(){
 		FB.ui({
 		  method: 'send',
-		  link: 'https://developers.facebook.com/docs/',
+		  link: 'https://darienjonathan.github.io/thelazyblog/2016.html',
 		});
 	});
 
