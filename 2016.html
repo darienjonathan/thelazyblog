@@ -178,9 +178,10 @@
 
 	  function postLike() {
     FB.api(
-       'https://darienjonathan.github.io/thelazyblog/2016.html',
+       'https://graph.facebook.com/me/og.likes',
        'post',
-       { object: objectToLike,
+       { object: 'https://darienjonathan.github.io/thelazyblog/2016.html',
+       'post',
          privacy: {'value': 'SELF'} },
        function(response) {
          if (!response) {
