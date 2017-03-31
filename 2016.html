@@ -175,6 +175,29 @@
 	     js.src = "//connect.facebook.net/en_US/sdk.js";
 	     fjs.parentNode.insertBefore(js, fjs);
 	   }(document, 'script', 'facebook-jssdk'));
+
+	  function postLike() {
+    FB.api(
+       'https://darienjonathan.github.io/thelazyblog/2016.html',
+       'post',
+       { object: objectToLike,
+         privacy: {'value': 'SELF'} },
+       function(response) {
+         if (!response) {
+           alert('Error occurred.');
+         } else if (response.error) {
+           document.getElementById('result').innerHTML =
+             'Error: ' + response.error.message;
+         } else {
+           document.getElementById('result').innerHTML =
+             '<a href=\"https://www.facebook.com/me/activity/' +
+             response.id + '\">' +
+             'Story created.  ID is ' +
+             response.id + '</a>';
+         }
+       }
+    );
+  }
 	</script>
 	
 	<!--Twitter SDK-->
@@ -309,7 +332,32 @@
 			<!--FB-->
 			<button id="shareDialog">shareDialog</button> | <button id="feedDialog">feedDialog</button> | <button id="sendDialog">sendDialog</button>
 			<hr>
-			<a href=”fb-messenger://share/?link= https%3A%2F%2Fdarienjonathan.github.io%2Fthelazyblog%2F2016.html”>Send In Messenger</a>
+			<div
+			  class="fb-login-button"
+			  data-show-faces="true"
+			  data-width="200"
+			  data-max-rows="1"
+			  data-scope="publish_actions">
+			</div>
+
+			<div>
+			This example creates a story on Facebook using the
+			<a href="https://developers.facebook.com/docs/reference/ogaction/og.likes">
+			<code>og.likes</code></a> API.  That story will just say
+			that you like an
+			<a href="http://techcrunch.com/2013/02/06/facebook-launches-developers-live-video-channel-to-keep-its-developer-ecosystem-up-to-date/">
+			article on TechCrunch</a>.  The story should only
+			be visible to you.
+			</div>
+
+			<div>
+			<input
+			  type="button"
+			  value="Create a story with an og.likes action"
+			  onclick="postLike();">
+			</div>
+
+			<div id="result"></div>
 			<hr>
 			<!--Twitter-->
 			<a href="https://twitter.com/intent/tweet?text=2016%20from%20the%20perspective%20of%20my%20eyes" class="twitter-share-button" data-show-count="true" data-size="large">Tweet</a>
@@ -317,7 +365,6 @@
 			<!--LINE-->
 			<div class="line-it-button" data-lang="en" data-type="share-a" data-url="https://darienjonathan.github.io/thelazyblog/2016.html" style="display: none;"></div>
 			<div class="line-it-button" data-lang="en" data-type="like" data-url="https://darienjonathan.github.io/thelazyblog/2016.html" data-share="true" style="display: none;"></div>
-			<div class="line-it-button" data-lang="en" data-type="friend" data-lineid="@lineteamjp" data-count="true" data-home="true" style="display: none;"></div>
 		</div>
 
 		<a href="index.html"><button class="close-button" type="button">
