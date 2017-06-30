@@ -32,129 +32,12 @@
 	<link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'><!--Merriweather-->
 	<link href='https://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'><!--Raleway (JPCC)-->
 	<link rel="icon" href="assets/img/favicon.png?">
+	<link rel="stylesheet" href="assets/css/app.css">
 	<link rel="stylesheet" href="assets/css/motion-ui.css">
 	<link rel='stylesheet' href='assets/css/foundation.min.css'>
 	<link rel='stylesheet' href='assets/css/animate.min.css'>
 	<link rel='stylesheet' href='assets/css/normalize.css'>
 </head>
-
-<style>
-	
-	body{
-		font-family: 'Lato', sans-serif;
-		width: 100%;
-		overflow-x: hidden;
-	}
-
-/* post */
-		.post{
-			max-width: 100vw;
-			margin: 20px;
-			display: block !important;
-		}
-			.hero{
-				height: 100vh;
-				margin: -20px;
-				position: relative;
-			}
-				.title{
-					padding: 20px 20px 10px 20px;
-					font-weight: bold;
-					background-color: rgba(255, 255, 255, 0.75);
-				}
-				.lang{
-					text-align:center;
-					cursor: pointer;
-				}
-
-				.lang
-					#lang_en:hover, #lang_id:hover, #lang_jp:hover{
-						color: red;
-					}
-				.hero-content{
-					position: relative;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-					text-align: center;
-					font-weight: bold;
-					color: white;
-					background-color: rgba(0,0,0,0.25);
-					padding: 50px;
-				}
-					.part{
-						font-size: 1.5rem;
-					}
-					.hero-text{
-						font-size: 3rem;
-					}
-
-			/*END - HERO*/
-
-			.post>div{
-				font-size: 0.9em;
-			}
-			.post>h1{
-				font-family: 'Raleway', sans-serif;
-			}
-				.post>div>span{
-					font-size: 1.1em;
-					font-family: 'Merriweather', sans-serif;
-				}
-
-		.content{
-			margin: 50px;
-			text-align: justify;
-		}
-		.image{
-			width: 100vw;
-			display: inline;
-			margin: 10px 0 10px 0;
-			box-sizing: border-box;
-		}
-
-		@media (max-width: 600px){
-			.hero-content{
-				padding: 20px;
-			}
-			.hero-text{
-				font-size: 2rem;
-			}
-			.content{
-				margin: 50px 10px 50px 10px;
-			}
-		}
-
-		.close-button{
-			font-size: 1.1rem;
-		}
-
-		.signature{
-			text-align: center;
-			font-weight: bold;
-		}
-
-		.fb_button{
-			left: 50%;
-			transform: translateX(-50%);
-		}
-
-/* Text Styles */
-		.bold{
-			font-weight: bold;
-		}
-		.underline{
-			text-decoration: underline;
-		}
-		ul>li{
-			text-align: justify;
-		}
-
-/* Language */
-		.id, .jp{
-			display: none;
-		}
-</style>
 
 <body>	
 	<!--FB SDK-->
@@ -329,34 +212,7 @@
 			DARIEN JONATHAN<br>
 			ダリエン・ジョナサン<br>	
 		</p>
-<!--
-		<div id="share" style="text-align: center; color: blue;">
-			//FB
-			<button id="shareDialog">shareDialog</button> | <button id="feedDialog">feedDialog</button> | <button id="sendDialog">sendDialog</button>
-			<hr>
-			<div class="fb-follow" data-href="https://www.facebook.com/darienjonathan" data-layout="standard" data-size="small" data-show-faces="true"></div>
-			<hr>
-			<div class="fb-like" data-href="https://darienjonathan.github.io/thelazyblog/2016.html" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-			<hr>
-			<div class="fb-page" data-href="https://www.facebook.com/darienjonathan" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
-			<hr>
-			<div class="fb-save" data-uri="https://instagram.com/darienjonathan" data-size="large"></div>
-			<hr>
-		  <div class="fb-send" 
-		    data-href="https://www.facebook.com/darienjonathan" 
-		    data-layout="button_count">
-		  </div>
 
-
-
-			//Twitter
-			<a href="https://twitter.com/intent/tweet?text=2016%20from%20the%20perspective%20of%20my%20eyes" class="twitter-share-button" data-show-count="true" data-size="large">Tweet</a>
-			<hr>
-			//LINE
-			<div class="line-it-button" data-lang="en" data-type="share-a" data-url="https://darienjonathan.github.io/thelazyblog/2016.html" style="display: none;"></div>
-			<div class="line-it-button" data-lang="en" data-type="like" data-url="https://darienjonathan.github.io/thelazyblog/2016.html" data-share="true" style="display: none;"></div>
-		</div>
--->
 		<a href="index.html"><button class="close-button" type="button">
 			<span aria-hidden="true">Back to Main Page</span>
 		</button></a>
@@ -368,32 +224,6 @@
 <script src="assets/js/motion-ui.js"></script>
 
 <script>
-/*
-	//button
-	document.getElementById('shareDialog').addEventListener('click', function(){
-		console.log('woy');
-		FB.ui({
-		  method: 'share',
-		  href: 'https://darienjonathan.github.io/thelazyblog/2016.html',
-		}, function(response){});
-	});
-
-	document.getElementById('feedDialog').addEventListener('click', function(){
-		FB.ui({
-		  method: 'feed',
-		  link: 'https://darienjonathan.github.io/thelazyblog/2016.html',
-		  caption: 'Ini Caption'
-		}, function(response){});
-	});
-
-	document.getElementById('sendDialog').addEventListener('click', function(){
-		FB.ui({
-		  method: 'send',
-		  link: 'https://darienjonathan.github.io/thelazyblog/2016.html',
-		});
-	});
-*/
-	//jq
 	$(document).ready(function(){
 		$(document).foundation();
 
