@@ -1,4 +1,6 @@
-
+@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+@import url('https://fonts.googleapis.com/css?family=Raleway:500');
 body{
   font-family: 'Lato', sans-serif;
   background: url('assets/img/bg.png');
