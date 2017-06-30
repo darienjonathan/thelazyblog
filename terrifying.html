@@ -14,12 +14,29 @@
 
 	<script src='assets/js/vendor/modernizr-custom.js'></script>
 	<link rel="icon" href="assets/img/favicon.png?">
-  <link rel="stylesheet" href="assets/css/app.css">
 	<link rel="stylesheet" href="assets/css/motion-ui.css">
 	<link rel='stylesheet' href='assets/css/foundation.min.css'>
 	<link rel='stylesheet' href='assets/css/animate.min.css'>
 	<link rel='stylesheet' href='assets/css/normalize.css'>
+  <link rel="stylesheet" href="assets/css/app.css">
 </head>
+
+<style>
+
+.hero{
+  background: url('assets/img/terrifying/header.jpg');
+  background-position: 0 100px;
+  background-size: cover;
+  background-height: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .hero{
+    background-position: -25px 100px;
+  }
+}
+
+</style>
 
 <body>	
 	<!--FB SDK-->
@@ -51,7 +68,7 @@
 
 
 	<div class="post">
-		<header class="hero" style="background: url('assets/img/terrifying/header.jpg') top center; background-height: 100%;">	
+		<header class="hero">	
 			<div class="title">
 				<br>darienjonathan's <span>#thelazyblog<span><br>
 			</div>
