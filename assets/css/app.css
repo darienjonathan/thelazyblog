@@ -52,19 +52,19 @@ body{
 
   /*END - HERO*/
 
-  .post>div{
+  .post>.title{
     font-size: 0.9em;
   }
   .post>h1{
     font-family: 'Raleway', sans-serif;
   }
-    .post>div>span{
+    .post>.title>span{
       font-size: 1.1em;
       font-family: 'Merriweather', sans-serif;
     }
 
 .content{
-  margin: 50px;
+  margin: 30px 50px 30px 50px;
   text-align: justify;
 }
 .image{
@@ -82,7 +82,7 @@ body{
     font-size: 2rem;
   }
   .content{
-    margin: 50px 10px 50px 10px;
+    margin: 30px 10px 30px 10px;
   }
 }
 
@@ -100,6 +100,12 @@ body{
   transform: translateX(-50%);
 }
 
+.content-img{
+   margin: 0 auto;
+   display:block;
+   height: 300px;
+}
+
 /* Text Styles */
 .topic-title{
   font-weight: bold;
@@ -113,6 +119,10 @@ body{
 }
 ul>li{
   text-align: justify;
+}
+
+.span-center{
+  text-align: center;
 }
 
 /* Language */
