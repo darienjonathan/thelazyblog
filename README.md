@@ -9,5 +9,5 @@ But I hope I'm not lazy enough to update the contents of this blog. Enjoy!
 
 -Darien Jonathan- //  [Back to Blog](https://darienjonathan.github.io/thelazyblog)
 
-![Hello][./realtime-demo.gif]
+![Hello](./realtime-demo.gif)
 
