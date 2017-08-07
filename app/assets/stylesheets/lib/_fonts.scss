@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+@import url('https://fonts.googleapis.com/css?family=Raleway:500');
+
+/* Text Styles */
+.bold{
+  font-weight: bold;
+}
+.italic{
+  font-style: italic;
+}
+.underline{
+  text-decoration: underline;
+}
+.center{
+  text-align: center;
+}
+.justify{
+  text-align: justify;
+}
+.signature{
+  @extend .bold;
+  @extend .center;
+}
+ul>li{
+  @extend .justify;
+}
+.close-button{
+  font-size: 1.1rem;
+}

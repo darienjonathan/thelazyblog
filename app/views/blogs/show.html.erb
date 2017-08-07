@@ -1,0 +1,11 @@
+<%= stylesheet_link_tag 'templates/blog' %>
+<% if File.exist?(Rails.root.join("app/assets/stylesheets", "#{css_file(@blog)}.scss")) %>
+  <%= stylesheet_link_tag css_file @blog %>
+<% end %>
+
+<div class="post">
+  <%= render "partials/blog_header", blog: @blog, header_image: @blog.header_images.find_by(title: true) %>
+  <% content = add_content @blog %>
+  <%= raw content %>
+  <%= render "partials/blog_footer" %>
+</div>

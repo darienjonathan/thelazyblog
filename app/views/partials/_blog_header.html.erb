@@ -1,0 +1,15 @@
+<% unless header_image.nil? %>
+  <header class="hero" style="background-image: url(<%= asset_path header_image.url %>)">
+    <% if header_image.title %>
+    <div class="blog-name-tag">
+      darienjonathan's<span class="blog-tag">#thelazyblog<span>
+    </div>
+    <% end %>
+    <%= render "partials/blog_hero", caption: header_image.caption %>
+  </header>
+<% else %>
+  <header class="hero">
+    <div class="blog-name-tag">darienjonathan's<span class="blog-tag">#thelazyblog<span></div>
+    <div class="heroless-title"><%= blog.title %></h1>
+  </header>
+<% end %>

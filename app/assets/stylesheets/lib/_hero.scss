@@ -1,0 +1,63 @@
+@mixin hero($position-pc, $position-sp, $height:false) {
+  //base-size: 20px
+  .hero {
+    height: if($height, $height, auto);
+    margin: if($height, 0 -20px 0 -20px, 0 0 50px -20px);
+    position: relative;
+    background-position: #{$position-pc};
+    background-size: cover;
+
+    .blog-name-tag{
+      padding: 40px 20px 10px 20px;
+      font-weight: bold;
+      background-color: rgba(255, 255, 255, 0.75);
+      .blog-tag{
+        font-size: 1.1em;
+        font-family: 'Merriweather', sans-serif;
+      }
+
+      .lang{
+        text-align:center;
+        cursor: pointer;
+        #lang_en:hover, #lang_id:hover, #lang_jp:hover{
+          color: red;
+        }
+      }
+    }
+
+    //blog that has hero
+    .hero-content{
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-weight: bold;
+      color: white;
+      background-color: rgba(0,0,0,0.25);
+      padding: 50px;
+      .hero-text{
+        font-size: 3rem;
+      }
+    }
+
+    //blog that doesn't have hero
+    .heroless-title{
+      font-family: 'Raleway', sans-serif;
+      font-size: 2rem;
+      margin-left: 20px;
+    }
+  }
+
+  @media (max-width: 600px){
+    .hero {
+      background-position: #{$position-sp};
+      .hero-content{
+        padding: 20px;
+        .hero-text{
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}

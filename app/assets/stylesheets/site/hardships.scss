@@ -1,0 +1,4 @@
+@import '../lib/hero';
+
+@include hero('0 78px', '-15px 78px', 100vh);
+
