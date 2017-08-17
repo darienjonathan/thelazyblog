@@ -87,9 +87,9 @@ Blog.create(title: "Free Will",
 
       My <span class=\"bold\">free will</span> fails my own intentions (I didn't even arrive to Pejaten). But what I thought was totally wrong (taking Pasming route), actually was the right thing to do. I planned my course. I executed my course. My course fails. But it's all for my own good.<br>
 
-      Earlier this week, my small group member asked me about <span class=\"bold\">free will</span> from Proverbs 16:1,9<br>
+      Earlier this week, my small group member asked me about <span class=\"bold\">free will</span> from Proverbs 16:1,9<br><br>
 
-      <p class=\"bold\" style=\"text-align:center\">
+      <p class=\"signature\">
         \"To humans belong the plans of the heart, but from the LORD comes the proper answer of the tongue.\" // \"In their hearts humans plan their course, but the LORD establishes their steps.\"
       </p>
 
@@ -99,7 +99,7 @@ Blog.create(title: "Free Will",
         know what's good and what's bad for us. Besides, there is also God's will, which is far more superior than our own <span class=\"bold\">free will</span>. I think, It would be quite handy if we use our own <span class=\"bold\">free will</span> to submit ourselves to God's will.</li>
         <li>Regardless of how we use our own <span class=\"bold\">free will</span> (even by ingoring The One who gave us <span class=\"bold\">free will</span>), we will eventually be ended where He wants us to be, and that's the best deal we can have. Deal with that.</li></ul>
 
-      <p class=\"bold\" style=\"text-align:center\">
+      <p class=\"signature\">
         BUT IT IS FREAKING HARD, DON'T WE ALL AGREE?
       </p>
     </div>"
