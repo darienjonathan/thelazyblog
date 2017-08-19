@@ -51,4 +51,4 @@ production:
   <<: *default
   database: self-journal_production
   username: self-journal
-  password: <%= ENV['SELF-JOURNAL_DATABASE_PASSWORD'] %>
+  password: <%= ENV['SELF_JOURNAL_DATABASE_PASSWORD'] %>
