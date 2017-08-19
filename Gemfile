@@ -31,6 +31,7 @@ gem 'firebase'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'dotenv-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'foundation-rails'
