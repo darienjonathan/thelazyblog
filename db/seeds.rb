@@ -42,7 +42,8 @@ Blog.create(title: "About the Creation of This Blog",
     <div class=\"content\">
       Super basic ingredients: HTML, CSS, JS (just jQuery), and Foundation 6 (well, a framework, a total token of laziness).<br>
       For the real blog, I'm planning to use MEAN (Mongo, Express, Angular, NodeJS) to create this blog. However, I procrastinated too much so that until now I can't get clear understanding in any of them. I hope I can end this laziness soon and start to learn all of them, so my real blog can be online soon.
-    </div>"
+    </div>",
+    created_at: Time.new(2016,8,6,9)
       )
 
 Blog.create(title: "Free Will",
@@ -102,7 +103,8 @@ Blog.create(title: "Free Will",
       <p class=\"signature\">
         BUT IT IS FREAKING HARD, DON'T WE ALL AGREE?
       </p>
-    </div>"
+    </div>",
+    created_at: Time.new(2016,8,27,9)
   )
 ContentImage.create(url: File.open(Rails.root.join('app', 'assets', 'images', 'freewill', 'map.png')), blog_id: 2)
 
@@ -233,7 +235,9 @@ Blog.create(title: "Kamakura",
 
       しかし、私の日本生活についてのブログポストがあったら、ソーシャルメディアですぐ知らせます。
     </div>
-  ")
+  ",
+  created_at: Time.new(2016,12,3,9)
+  )
 HeaderImage.create(title: true, url: File.open(Rails.root.join('app', 'assets', 'images', 'kamakura', 'header.jpg')), blog_id: 3, caption: "KAMAKURA<br>鎌倉")
 HeaderImage.create(url: File.open(Rails.root.join('app', 'assets', 'images', 'kamakura', 'komachi.jpg')), blog_id: 3, caption: "KOMACHI STREET")
 HeaderImage.create(url: File.open(Rails.root.join('app', 'assets', 'images', 'kamakura', 'tsurugaoka_hachimangu-1.jpg')), blog_id: 3, caption: "TSURUGAOKA HACHIMANGU")
@@ -350,7 +354,9 @@ Blog.create(title: "My 2016 Recap",
       2017年、神様、世界、不合理な学習曲線（その内容にいい機会もあります）、無条件なすくい、よいお年を。<br>
       私の生活の話は、私の力についてじゃありません。この話は、私の全然持っていない力について。そして、神様の無限な救いについてです。 
     </p>
-  ")
+  ",
+  created_at: Time.new(2017,1,2,9)
+  )
 HeaderImage.create(title: true, url: File.open(Rails.root.join('app', 'assets', 'images', 'my_2016_recap', 'header.jpg')), blog_id: 4, caption: "My 2016 Recap")
 
 Blog.create(title: "Imagination",
@@ -401,7 +407,9 @@ Blog.create(title: "Imagination",
     <p class=\"signature content\">
       Imajinasi adalah sebuah hal yang indah, dan imajinasi yang terinduksi bisa menjadi sangat kuat dan memberikan pengaruh yang signifikan bagi pemiliknya. Pertanyaannya, pengaruh apa yang akan dihasilkan dari imajinasi itu? Tergantung bagaimana kita menyikapinya.
     </div>
-  ")
+  ",
+  created_at: Time.new(2017,4,9,9)
+  )
 HeaderImage.create(title: true, url: File.open(Rails.root.join('app', 'assets', 'images', 'imagination', 'header.jpg')), blog_id: 5, caption: "IMAGINATION: Make Use of it, or be Drowned by It")
 
 Blog.create(title: "Hardships",
@@ -552,7 +560,9 @@ Blog.create(title: "Hardships",
     <p class=\"signature content\">
       I'm gonna survive this. No matter what. Or No. God will make me survive this. And I'm gonna come out as a better person, cognitively, mentally, and spiritually.
     </p>
-  ")
+  ",
+  created_at: Time.new(2017,7,3,9)
+  )
 HeaderImage.create(title: true, url: File.open(Rails.root.join('app', 'assets', 'images', 'hardships', 'header.jpg')), blog_id: 6, caption: "Hardships:<br>Things to be Learned Out of It")
 ContentImage.create(url: File.open(Rails.root.join('app', 'assets', 'images', 'hardships', 'fix.png')), blog_id: 6, class_attr: "small-img")
 ContentImage.create(url: File.open(Rails.root.join('app', 'assets', 'images', 'hardships', 'wtf.png')), blog_id: 6, class_attr: "small-img", caption: "siap runtuh kapan saja.")
