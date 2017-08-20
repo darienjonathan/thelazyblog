@@ -3,7 +3,7 @@
   <div class = "small-12 large-4 columns">
     <div class = "section-title"><%= blogs[i].title %></div>
     <div class = "section-brief">
-      <span style="float:right"><%= blogs[i].created_at %></span><br><br>
+      <span style="float:right"><%= blogs[i].created_at.strftime("%A, %d %B %Y") %></span><br><br>
       <%= raw blogs[i].summary %>
       <%= link_to "Read More・続きを読む", blogs[i] %>
     </div>
