@@ -10,7 +10,9 @@
 /log/*
 /tmp/*
 !/log/.keep
-!/tmp/.keep
+!/tmp/sockets
+!/tmp/sockets/.keep
+/blog
 
 /node_modules
 /yarn-error.log
