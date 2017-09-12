@@ -16,11 +16,20 @@
         font-family: 'Merriweather', sans-serif;
       }
 
-      .lang{
+      .lang_wrapper{
         text-align:center;
         cursor: pointer;
-        #lang_en:hover, #lang_id:hover, #lang_jp:hover{
+
+        .lang{
           color: red;
+          -webkit-transition: color 0.15s linear;
+            -moz-transition: color 0.15s linear;
+            -ms-transition: color 0.15s linear;
+            -o-transition: color 0.15s linear;
+            transition: color 0.15s linear;
+          &:hover, &.active{
+            color: turquoise;
+          }
         }
       }
     }
