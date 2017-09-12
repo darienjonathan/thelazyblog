@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato');
-@import url('https://fonts.googleapis.com/css?family=Merriweather');
-@import url('https://fonts.googleapis.com/css?family=Raleway:500');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab|Prociono|Lato|Merriweather|Raleway:500');
 
 /* Text Styles */
 .bold{
@@ -27,4 +25,7 @@ ul>li{
 }
 .close-button{
   font-size: 1.1rem;
+}
+.lead{
+  font-family: 'merriweather', serif;
 }
