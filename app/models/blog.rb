@@ -2,6 +2,17 @@ class Blog < ApplicationRecord
   has_many :comments
   has_many :content_images
   has_many :header_images
+  serialize :lang, Array
+
+  LANG_ARRAY = ["en", "id", "jp"]
+
+  validate :lang_valid?
+
+  def lang_valid?
+    unless lang.empty?
+      errors.add(:field, 'The allowed language code is only "en", "id", or "jp"') unless lang.select{|a| LANG_ARRAY.include? a} == lang
+    end
+  end
 
   def meta_tag
     header_image = self.header_images.first
