@@ -236,6 +236,7 @@ Blog.create(title: "Kamakura",
       しかし、私の日本生活についてのブログポストがあったら、ソーシャルメディアですぐ知らせます。
     </div>
   ",
+  lang: ["id", "en", "jp"],
   created_at: Time.new(2016,12,3,9)
   )
 HeaderImage.create(title: true, url: File.open(Rails.root.join('app', 'assets', 'images', 'kamakura', 'header.jpg')), blog_id: 3, caption: "KAMAKURA<br>鎌倉")
@@ -355,6 +356,7 @@ Blog.create(title: "My 2016 Recap",
       私の生活の話は、私の力についてじゃありません。この話は、私の全然持っていない力について。そして、神様の無限な救いについてです。 
     </p>
   ",
+  lang: ["en", "jp"],
   created_at: Time.new(2017,1,2,9)
   )
 HeaderImage.create(title: true, url: File.open(Rails.root.join('app', 'assets', 'images', 'my_2016_recap', 'header.jpg')), blog_id: 4, caption: "My 2016 Recap")

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807022543) do
+ActiveRecord::Schema.define(version: 20170912134128) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "namespace"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20170807022543) do
     t.integer "stars", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "lang"
     t.index ["tag"], name: "index_blogs_on_tag"
     t.index ["title"], name: "index_blogs_on_title"
   end
