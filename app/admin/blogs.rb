@@ -7,6 +7,7 @@ ActiveAdmin.register Blog do
     column :title
     column :tag
     column :stars
+    column :lang
     column :link do |blog|
       link_to 'go', blog_path(blog)
     end
@@ -20,6 +21,7 @@ ActiveAdmin.register Blog do
       input :summary
       input :content
       input :created_at
+      input :lang
     end
     actions
   end
