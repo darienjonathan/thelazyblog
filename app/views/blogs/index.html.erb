@@ -1,9 +1,19 @@
 <%= stylesheet_link_tag 'templates/index' %>
 
 <header>
-  <div>
+  <div class="blog-title">
     Darien Jonathan's<span>#thelazyblog</span><br><br>
     -Jack of the trades who likes to share his treads-
   </div>
+  <div id="sns-link">
+    <a href="https://github.com/darienjonathan/thelazyblog">
+      <img src=<%= asset_path "sns/github.png" %>>darienjonathan/thelazyblog
+    </a>
+    <a href="https://instagram.com/darienjonathan">
+      <img src=<%= asset_path "sns/ig.png" %>>@darienjonathan
+    </a>
+  </div>
 </header>
+<content>
 <%= raw index_grid_box @blogs %>
+</content>

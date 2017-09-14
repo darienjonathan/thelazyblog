@@ -19,6 +19,7 @@
 .signature{
   @extend .bold;
   @extend .center;
+  font-family: 'merriweather', serif;
 }
 ul>li{
   @extend .justify;
