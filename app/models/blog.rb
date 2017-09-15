@@ -24,7 +24,7 @@ class Blog < ApplicationRecord
       meta_tag[:og_title] = self.title
     else
       meta_tag[:og_title] = header_image.caption.gsub(/<br>/," ")
-      meta_tag[:image] = header_image
+      meta_tag[:image] = view_context.asset_path(header_image.url)
     end
     meta_tag
   end
