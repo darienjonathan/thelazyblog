@@ -15,7 +15,3 @@
 //= require rails-ujs
 //= require foundation
 //= require turbolinks
-
-$(function(){
-  $(document).foundation();
-});
