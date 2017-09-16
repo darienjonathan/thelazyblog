@@ -15,8 +15,10 @@
     $(document).foundation();
 
     if(window.matchMedia('(max-width: 600px)').matches) {
-      height = parseInt($('.hero').css("height"));
-      $('.hero').css("height", height+"px");
+      setTimeout(() => { //since somehow this script gets loaded first before the css
+        height = parseInt($('.hero').css("height"));
+        $('.hero').css("height", height+"px");
+      },10);
     }
 
     (function(){
