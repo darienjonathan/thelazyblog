@@ -14,4 +14,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 css_file = %w( templates/index.css templates/blog.css ) 
 css_file += %w( site/about_the_creation_of_this_blog.css site/free_will.css )
 css_file += %w( site/kamakura.css site/my_2016_recap.css site/imagination.css site/hardships.css )
+css_file += %w( site/asdasd.css )
+css_file += %w( site/asdas.css )
+css_file += %w( site/qqq.css )
 Rails.application.config.assets.precompile += css_file
