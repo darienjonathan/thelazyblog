@@ -1,6 +1,6 @@
 ActiveAdmin.register Blog do
 
-  permit_params :id, :title, :summary, :tag, :stars, :content, :created_at, :lang
+  permit_params :id, :title, :summary, :tag, :stars, :content, :created_at, :lang => []
 
   index do
     column :id
@@ -21,7 +21,7 @@ ActiveAdmin.register Blog do
       input :summary
       input :content
       input :created_at
-      input :lang
+      input :lang, as: :check_boxes, collection: Blog::LANG_ARRAY
     end
     actions
   end
