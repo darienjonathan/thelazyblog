@@ -22,6 +22,6 @@ class BlogsController < InheritedResources::Base
     end
 
     def blog_params
-      params.require(:blog).permit(:title, :tag, :summary, :header, :header_img, :content, :stars)
+      params.require(:blog).permit(:title, :tag, :summary, :header, :header_img, :content, :stars, :lang)
     end
 end

@@ -1,6 +1,6 @@
 ActiveAdmin.register Blog do
 
-  permit_params :id, :title, :tag, :stars, :content, :created_at
+  permit_params :id, :title, :summary, :tag, :stars, :content, :created_at, :lang
 
   index do
     column :id
