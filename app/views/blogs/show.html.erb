@@ -1,10 +1,14 @@
 <%= stylesheet_link_tag 'templates/blog' %>
-<% if File.exist?(Rails.root.join("app/assets/stylesheets", "#{css_file(@blog)}.scss")) %>
-  <%= stylesheet_link_tag css_file @blog %>
-<% end %>
+<%= stylesheet_link_tag 'lib/hero' %>
+
+<% header_image = @blog.header_images.where(title: true).first %>
+<% header_bg_pos = {
+  pc: header_image.try(:bg_pos_pc) || "center center",
+  sp: header_image.try(:bg_pos_sp) || "center center" 
+} %>
 
 <div class="post">
-  <%= render "partials/blog_header", blog: @blog, header_image: @blog.header_images.find_by(title: true) %>
+  <%= render "partials/blog_header", blog: @blog, header_image: header_image %>
   <% content = add_content @blog %>
   <%= raw content %>
   <%= render "partials/blog_footer" %>
@@ -13,13 +17,16 @@
 <script>
   $(document).ready(function(){
     $(document).foundation();
+    
+    if(<%= !header_image.nil? %>)
+      { $('.hero').css({ "height":window.innerHeight, "margin":"0 -20px 0 -20px" }); }
+    else
+      { $('.hero').css({ "height":"auto", "margin":"0 0 50px -20px" }); }
 
-    if(window.matchMedia('(max-width: 600px)').matches) {
-      setTimeout(() => { //since somehow this script gets loaded first before the css
-        height = parseInt($('.hero').css("height"));
-        $('.hero').css("height", height+"px");
-      },250);
-    }
+    if(window.matchMedia('(max-width: 600px)').matches)
+      { $(".hero:first-child").css("background-position","<%= header_bg_pos[:pc] %>"); }
+    else
+      { $(".hero:first-child").css("background-position","<%= header_bg_pos[:sp] %>"); }
 
     (function(){
       let en = document.querySelectorAll('.en'),
@@ -65,7 +72,5 @@
         })
       }    
     })();
-    
   })
-
 </script>

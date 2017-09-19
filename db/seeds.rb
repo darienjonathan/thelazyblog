@@ -565,7 +565,7 @@ Blog.create(title: "Hardships",
   ",
   created_at: Time.new(2017,7,3,9)
   )
-HeaderImage.create(title: true, url: File.open(Rails.root.join('app', 'assets', 'images', 'hardships', 'header.jpg')), blog_id: 6, caption: "Hardships:<br>Things to be Learned Out of It")
+HeaderImage.create(title: true, url: File.open(Rails.root.join('app', 'assets', 'images', 'hardships', 'header.jpg')), blog_id: 6, caption: "Hardships:<br>Things to be Learned Out of It",bg_pos_pc: "-0px 78px", bg_pos_sp: "-15px 78px")
 ContentImage.create(url: File.open(Rails.root.join('app', 'assets', 'images', 'hardships', 'fix.png')), blog_id: 6, class_attr: "small-img")
 ContentImage.create(url: File.open(Rails.root.join('app', 'assets', 'images', 'hardships', 'wtf.png')), blog_id: 6, class_attr: "small-img", caption: "siap runtuh kapan saja.")
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

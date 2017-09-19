@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170912134128) do
+ActiveRecord::Schema.define(version: 20170919043941) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "namespace"
@@ -78,6 +78,8 @@ ActiveRecord::Schema.define(version: 20170912134128) do
     t.string "url"
     t.string "caption"
     t.bigint "blog_id"
+    t.string "bg_pos_pc", default: "center center"
+    t.string "bg_pos_sp", default: "center center"
     t.index ["blog_id"], name: "index_header_images_on_blog_id"
   end
 

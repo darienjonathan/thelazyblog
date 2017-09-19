@@ -14,28 +14,6 @@ class Blog < ApplicationRecord
     end
   end
 
-  before_validation :lang_array_omit_empty
-  after_create :create_default_css
-
-  def lang_array_omit_empty
-    self.lang.reject!{ |l| l.empty? }
-  end
-
-  def create_default_css
-    File.open(css_path, "w+") do |f|
-      f.puts "@import '../lib/hero';"
-      self.header_images.empty? ? f.puts(HeaderImage::HEROLESS_CSS) : f.puts(HeaderImage::HERO_CSS)
-    end
-
-    initializer_path = Rails.root.join(DEFAULT_INITIALIZER_PATH)
-    file = File.open(initializer_path).to_a
-    file.insert(file.length-1, "css_file += %w( site/#{css_file_name}.css )\n")
-    File.open(initializer_path, "w+") do |f|
-      f.puts file
-    end
-  end
-
-
   def meta_tag
     header_image = self.header_images.first
     meta_tag = {
