@@ -24,9 +24,9 @@
       { $('.hero').css({ "height":"auto", "margin":"0 0 50px -20px" }); }
 
     if(window.matchMedia('(max-width: 600px)').matches)
-      { $(".hero:first-child").css("background-position","<%= header_bg_pos[:pc] %>"); }
-    else
       { $(".hero:first-child").css("background-position","<%= header_bg_pos[:sp] %>"); }
+    else
+      { $(".hero:first-child").css("background-position","<%= header_bg_pos[:pc] %>"); }
 
     (function(){
       let en = document.querySelectorAll('.en'),
