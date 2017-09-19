@@ -8,10 +8,16 @@ class Blog < ApplicationRecord
 
   validate :lang_valid?
 
+  before_validation :lang_array_omit_empty
+
   def lang_valid?
     unless lang.empty?
       errors.add(:field, 'The allowed language code is only "en", "id", or "jp"') unless lang.select{|a| LANG_ARRAY.include? a} == lang
     end
+  end
+
+  def lang_array_omit_empty
+    self.lang.reject!{ |l| l.empty? }
   end
 
   def meta_tag
