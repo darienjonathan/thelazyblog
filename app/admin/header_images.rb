@@ -1,6 +1,6 @@
 ActiveAdmin.register HeaderImage do
 
-  permit_params :title, :url, :caption, :blog_id
+  permit_params :title, :url, :caption, :blog_id, :bg_pos_pc, :bg_pos_sp
 
   index do
     column :id
