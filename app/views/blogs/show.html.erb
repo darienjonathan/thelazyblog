@@ -1,14 +1,14 @@
 <%= stylesheet_link_tag 'templates/blog' %>
 <%= stylesheet_link_tag 'lib/hero' %>
 
-<% header_image = @blog.header_images.where(title: true).first %>
+<% title_header =  @blog.header_images.where(title: true).first %>
 <% header_bg_pos = {
-  pc: header_image.try(:bg_pos_pc) || "center center",
-  sp: header_image.try(:bg_pos_sp) || "center center" 
+  pc: title_header.try(:bg_pos_pc) || "center center",
+  sp: title_header.try(:bg_pos_sp) || "center center" 
 } %>
 
 <div class="post">
-  <%= render "partials/blog_header", blog: @blog, header_image: header_image %>
+  <%= render "partials/blog_header", blog: @blog, header_image: title_header %>
   <% content = add_content @blog %>
   <%= raw content %>
   <%= render "partials/blog_footer" %>
@@ -18,15 +18,18 @@
   $(document).ready(function(){
     $(document).foundation();
     
-    if(<%= !header_image.nil? %>)
-      { $('.hero').css({ "height":window.innerHeight, "margin":"0 -20px 0 -20px" }); }
-    else
-      { $('.hero').css({ "height":"auto", "margin":"0 0 50px -20px" }); }
 
-    if(window.matchMedia('(max-width: 600px)').matches)
-      { $(".hero:first-child").css("background-position","<%= header_bg_pos[:pc] %>"); }
-    else
-      { $(".hero:first-child").css("background-position","<%= header_bg_pos[:sp] %>"); }
+    (function(){
+      $('.hero').css({ "height":window.innerHeight, "margin":"0 -20px 0 -20px" });
+      
+      if(<%= title_header.nil? %>)
+        { $('.hero:first-child').css({ "height":"auto", "margin":"0 0 50px -20px" }); }
+
+      if(window.matchMedia('(max-width: 600px)').matches)
+        { $(".hero:first-child").css("background-position","<%= header_bg_pos[:sp] %>"); }
+      else
+        { $(".hero:first-child").css("background-position","<%= header_bg_pos[:pc] %>"); }
+    })();
 
     (function(){
       let en = document.querySelectorAll('.en'),
