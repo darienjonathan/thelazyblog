@@ -13,6 +13,8 @@ ActiveAdmin.register HeaderImage do
     actions
   end
 
+  show title: "Header Image"
+
   form do |f|
     inputs do
       input :blog
