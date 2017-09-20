@@ -10,7 +10,10 @@
   </header>
 <% else %>
   <header class="hero">
-    <div class="blog-name-tag">darienjonathan's<span class="blog-tag">#thelazyblog<span></div>
+    <div class="blog-name-tag">
+      darienjonathan's<span class="blog-tag">#thelazyblog<span>
+      <%= render "partials/blog_lang_table", lang: blog.lang unless blog.lang.nil? %>
+    </div>
     <div class="heroless-title"><%= blog.title %></h1>
   </header>
 <% end %>
