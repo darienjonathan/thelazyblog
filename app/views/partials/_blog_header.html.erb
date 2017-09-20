@@ -6,7 +6,7 @@
       <%= render "partials/blog_lang_table", lang: blog.lang unless blog.lang.nil? %>
     </div>
     <% end %>
-    <%= render "partials/blog_hero", caption: header_image.caption %>
+    <%= render "partials/blog_hero", caption: !header_image.caption.empty? ? header_image.caption : blog.title %>
   </header>
 <% else %>
   <header class="hero">
