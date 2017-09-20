@@ -16,7 +16,6 @@ class Blog < ApplicationRecord
     end
   end
 
-
   def lang_array_omit_empty
     self.lang.reject!{ |l| l.empty? }
   end

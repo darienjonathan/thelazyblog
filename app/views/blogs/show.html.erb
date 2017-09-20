@@ -19,6 +19,7 @@
     $(document).foundation();
     
 
+<<<<<<< HEAD
     (function(){
       $('.hero').css({ "height":window.innerHeight, "margin":"0 -20px 0 -20px" });
       
@@ -30,6 +31,12 @@
       else
         { $(".hero:first-child").css("background-position","<%= header_bg_pos[:pc] %>"); }
     })();
+=======
+    if(window.matchMedia('(max-width: 600px)').matches)
+      { $(".hero:first-child").css("background-position","<%= header_bg_pos[:sp] %>"); }
+    else
+      { $(".hero:first-child").css("background-position","<%= header_bg_pos[:pc] %>"); }
+>>>>>>> becef8afd6091320fb8a62bffb8ba8d3e1e5c339
 
     (function(){
       let en = document.querySelectorAll('.en'),
