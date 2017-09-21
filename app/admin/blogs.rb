@@ -15,6 +15,7 @@ ActiveAdmin.register Blog do
   end
 
   form do |f|
+    f.semantic_errors *f.object.errors.keys
     inputs do
       input :title
       input :tag

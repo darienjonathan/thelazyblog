@@ -27,6 +27,7 @@ ActiveAdmin.register ContentImage do
   end
 
   form do |f|
+    f.semantic_errors *f.object.errors.keys
     inputs do
       input :blog
       input :url
