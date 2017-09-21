@@ -12,7 +12,7 @@ class Blog < ApplicationRecord
 
   def lang_valid?
     unless lang.empty?
-      errors.add(:field, 'The allowed language code is only "en", "id", or "jp"') unless lang.select{|a| LANG_ARRAY.include? a} == lang
+      errors.add(:'language', ': the allowed language code is only "en", "id", and/or "jp"') unless lang.select{|a| LANG_ARRAY.include? a} == lang
     end
   end
 
