@@ -1,4 +1,4 @@
-# thelazyblog
+# #thelazyblog
 `thelazyblog` is a simple blog platform written with Ruby on Rails. It is used to generate http://darienjonathan.com.
 
 This blog platform has basic feature for users to post writings (explained below), and as the blog owner, this platform provides an admin page to write and manage the blog contents.
@@ -23,6 +23,7 @@ If you want to start from zero (i.e. to setup an empty server to be able to run 
 3. bundle install --path=vendor/bundler
 4. bundle exec rake db:create db:migrate db:seed
 5. bundle exec rake assets:precompile
+
 And you’re good to go!
 
 ## Environment Variables
@@ -37,14 +38,14 @@ If you’re in a production environment, you need to specify it by yourself:
 3. enter rails console (`RAILS_ENV=production rbenv exec bundle exec rails c`)
 4. Enter your desired account credentials to `AdminUser` model (i.e. `AdminUser.create(email: "admin@example.com", password: "password"`)
 
-## Writing blogpost
+## Writing Blogpost
 Aside of basic text for the writing, the supported features:
 * hero (header-image) based title, or the text-only usual ones
 * header-based subtopics, or the text-only usual ones
 * images
 * three language support: indonesian - id, english - en, and japanese - jp, if you want to write a post in these languages.
 
-### writing blog content
+### Writing Blog Content
 a paragraph is enclosed by a `div` element with `content` class with it:
 ```html
 <div class="content">
@@ -56,14 +57,14 @@ Second Paragraph
 </div>
 ```
 
-### titles
+### Titles
 you can simply specify the title in the form, or if you’re using header images for your title, you can specify it on its caption.
 
-### content images
+### Content Images
 After you upload content image(s) for a particular blogpost, you can add it to your writing by adding `image[n]`, with `n` is the order of the image for that blogpost.
 Let’s say you have uploaded image A and B, and you want to display it on your post, then you should write `image[0]` to display image A, and `image[1]` to display image B.
 
-### subtopics
+### Subtopics
 a subtopic is enclosed by a `p` element with `lead` class with it:
 ```html
 <p class="lead">Subtopic</p>
@@ -72,7 +73,7 @@ you can also use header images for your subtopic, and you can specify it on its 
 After you upload non-title header(s) for a particular blogpost, you can add it to your writing by adding `header[n]`.
 Let’s say you have uploaded non-title headers A and B, and you want to display it on your post, then you should write `header[0]` to display header A, and `header[1]` to display header B.
 
-#### languages
+#### Languages
 if you want to write blogs with multiple languages, you should:
 * check the appropriate language checkboxes at the bottom of the form
 * write your language-specific writing in any element, with additional class corresponding to your specified language (`en`, `id`, or `jp`).
@@ -89,7 +90,7 @@ Example:
 By doing that, whenever the language link on the top of the page is clicked, only the corresponding content will be showed (the other will be hidden). i.e. if the “日本語” link is clicked, all elements with `en` and `id` on its class will be hidden.
 Element without any language class on it will always be shown regardless of the selected language.
 
-#### Other provided classes/ids
+#### Other Provided classes/ids
 usage: add below classname to the class attribute of your specified element.
 i.e. 
 ```html
