@@ -36,12 +36,12 @@ You need to have these installed (with listed version or newer ones) in your mac
 * Dotenv: to manage environment variables
 
 ## Installation
-If you want to start from zero (i.e. to setup an empty server to be able to run this app), see [chef branch](https://github.com/darienjonathan/thelazyblog-chef). If you already have the necessary environment to run rails-based apps:
-1. git clone https://github.com/darienjonathan/thelazyblog.git /path/to/dir
-2. cd /path/to/dir
-3. bundle install --path=vendor/bundler
-4. bundle exec rake db:create db:migrate db:seed
-5. bundle exec rake assets:precompile
+If you want to start from zero (i.e. to setup an empty server to be able to run this app), see [chef branch](https://github.com/darienjonathan/thelazyblog-chef). If you already have the necessary environment to run rails-based app:
+1. `git clone https://github.com/darienjonathan/thelazyblog.git`
+2. `cd thelazyblog`
+3. `bundle install --path=vendor/bundler`
+4. `bundle exec rake db:create db:migrate db:seed`
+5. `bundle exec rake assets:precompile`
 
 And you’re good to go!
 
@@ -55,7 +55,7 @@ If you’re in a production environment, you need to specify it by yourself:
 1. ssh to your server
 2. `cd /path/to/blog/dir`
 3. enter rails console (`RAILS_ENV=production rbenv exec bundle exec rails c`)
-4. Enter your desired account credentials to `AdminUser` model (i.e. `AdminUser.create(email: "admin@example.com", password: "password"`)
+4. Enter your desired account credentials to `AdminUser` model (i.e. `AdminUser.create(email: "admin@example.com", password: "password")`)
 
 ## Writing Blogpost
 Aside of basic text for the writing, the supported features:
