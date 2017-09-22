@@ -4,11 +4,12 @@
 This blog platform has basic feature for users to post writings (explained below), and as the blog owner, this platform provides an admin page to write and manage the blog contents.
 
 ## Requirements
-You need to have these installed in your machine to run this blog:
+You need to have these installed (with listed version or newer ones) in your machine to run this blog:
 * Ruby: 2.4.1
 * Nginx: 1.10.3
 * NodeJS: 6.11.3
 * Rails: 5.1.2
+
 
 ## Supporting tools (gems)
 * ActiveAdmin: admin page
@@ -21,8 +22,9 @@ If you want to start from zero (i.e. to setup an empty server to be able to run 
 1. git clone https://github.com/darienjonathan/thelazyblog.git /path/to/dir
 2. cd /path/to/dir
 3. bundle install --path=vendor/bundler
-4. bundle exec rake db:create db:migrate db:seed
-5. bundle exec rake assets:precompile
+4. rename `db/seeds.rb/example` to `db/seeds.rb` (or change it to your liking if you know how to utilize seeds)
+5. bundle exec rake db:create db:migrate db:seed
+6. bundle exec rake assets:precompile
 
 And you’re good to go!
 
