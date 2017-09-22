@@ -1,24 +1,132 @@
-# README
+# thelazyblog
+`thelazyblog` is a simple blog platform written with Ruby on Rails. It is used to generate http://darienjonathan.com.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This blog platform has basic feature for users to post writings (explained below), and as the blog owner, this platform provides an admin page to write and manage the blog contents.
 
-Things you may want to cover:
+## Requirements
+You need to have these installed in your machine to run this blog:
+* Ruby: 2.4.1
+* Nginx: 1.10.3
+* NodeJS: 6.11.3
+* Rails: 5.1.2
 
-* Ruby version
+## Supporting tools (gems)
+* ActiveAdmin: admin page
+* minimagick: to save images to database, to display images
+* Carrierwave: to upload files (images, in this case)
+* Dotenv: to manage environment variables
 
-* System dependencies
+## Installation
+If you want to start from zero (i.e. to setup an empty server to be able to run this app), see [chef branch](https://github.com/darienjonathan/thelazyblog-chef). If you already have the necessary environment to run rails-based app:
+1. git clone https://github.com/darienjonathan/thelazyblog.git /path/to/dir
+2. cd /path/to/dir
+3. bundle install --path=vendor/bundler
+4. bundle exec rake db:create db:migrate db:seed
+5. bundle exec rake assets:precompile
+And you’re good to go!
 
-* Configuration
+## Environment Variables
+look at `.env.example` and provide the appropriate values for your environment.
 
-* Database creation
+## Admin: Username & Password
+If you’re in a development environment, you can use the default account provided by activeadmin gem:
+`admin@example.com / password`
+If you’re in a production environment, you need to specify it by yourself:
+1. ssh to your server
+2. `cd /path/to/blog/dir`
+3. enter rails console (`RAILS_ENV=production rbenv exec bundle exec rails c`)
+4. Enter your desired account credentials to `AdminUser` model (i.e. `AdminUser.create(email: "admin@example.com", password: "password"`)
 
-* Database initialization
+## Writing blogpost
+Aside of basic text for the writing, the supported features:
+* hero (header-image) based title, or the text-only usual ones
+* header-based subtopics, or the text-only usual ones
+* images
+* three language support: indonesian - id, english - en, and japanese - jp, if you want to write a post in these languages.
 
-* How to run the test suite
+### writing blog content
+a paragraph is enclosed by a `div` element with `content` class with it:
+```html
+<div class="content">
+First Paragraph
+</div>
 
-* Services (job queues, cache servers, search engines, etc.)
+<div class="content">
+Second Paragraph
+</div>
+```
 
-* Deployment instructions
+### titles
+you can simply specify the title in the form, or if you’re using header images for your title, you can specify it on its caption.
 
-* ...
+### content images
+After you upload content image(s) for a particular blogpost, you can add it to your writing by adding `image[n]`, with `n` is the order of the image for that blogpost.
+Let’s say you have uploaded image A and B, and you want to display it on your post, then you should write `image[0]` to display image A, and `image[1]` to display image B.
+
+### subtopics
+a subtopic is enclosed by a `p` element with `lead` class with it:
+```html
+<p class="lead">Subtopic</p>
+```
+you can also use header images for your subtopic, and you can specify it on its caption. It is similar to how you would display an image to your blogpost - just changing the word `image` to `header`.
+After you upload non-title header(s) for a particular blogpost, you can add it to your writing by adding `header[n]`.
+Let’s say you have uploaded non-title headers A and B, and you want to display it on your post, then you should write `header[0]` to display header A, and `header[1]` to display header B.
+
+#### languages
+if you want to write blogs with multiple languages, you should:
+* check the appropriate language checkboxes at the bottom of the form
+* write your language-specific writing in any element, with additional class corresponding to your specified language (`en`, `id`, or `jp`).
+Example:
+```html
+<p class="lead en">Subtopic</p>
+<p class="lead id">Subtopik</p>
+<p class="lead jp">サブトピック</p>
+
+<p class"content en">English content</p>
+<p class"content id">Konten Bahasa Indonesia</p>
+<p class"content jp">日本語の内容</p>
+```
+By doing that, whenever the language link on the top of the page is clicked, only the corresponding content will be showed (the other will be hidden). i.e. if the “日本語” link is clicked, all elements with `en` and `id` on its class will be hidden.
+Element without any language class on it will always be shown regardless of the selected language.
+
+#### Other provided classes/ids
+usage: add below classname to the class attribute of your specified element.
+i.e. 
+```html
+<div class=“center”>This text is centered</div>
+```
+
+* bold: to **bold** a text. i.e. `<span class=“bold”>`**this is a bold text**`</span>`
+* italic: to *italic* a text. i.e. `<span class=“italic”>`*this is an italic text*`</span>``
+* underline: to underline a text. i.e. `<span class=“underline”>`this is an underlined text`</span>`
+* signature: to __*bold&italic*__ a text `<span class=“signature”>`this text is both bold and italic`</span>`
+* center: to have a text to be center-aligned
+* justify: to have a text to be justify-aligned
+
+### Content Images
+You can upload images that goes into the the content (not as header) by using the “Content Image” tab in the admin page.
+* You should specify to which blog this image belongs.
+* you can add a caption to the image.
+* You can also choose the size of the image by choosing from the radio button (small or normal).
+    * Normal ones takes full width of the page
+    * The small ones is fixed on height (300px - around 50% of smartphones or 30-40% of desktops)
+The order of the image upload is considered in your blogpost - `image[0]` will display the first uploaded image to the particular blog, `image[1]` will display the second image, and so on.
+
+### Header Images
+You can upload images that goes into the header (subtopics or titles) by using the “Header Image’ tab in the admin page.
+* You should specify to which blog this header image belongs.
+* You can assign the header image as your blog’s title. **You can only (and should only) specify one header image to be specified as a title per blog!** This platform isn’t built to deal with more than one titles per blog.
+* You can add a caption to the image. If you add a caption to the image which serves as a title, the title of the blog becomes the caption.
+* For headers specified as title, you can specify the positioning of the image with CSS syntax of `background-position`. Any invalid entries will be treated as `center center`.
+The order of the header upload is considered in your blogpost - `header[0]` will display the first uploaded non-title header to the particular blog, `header[1]` will display the second non-title header, and so on.
+
+### Signature
+At the end of each blog, there’s a signature phrase. Since it does not change in every blogpost, I’m not planning to manage it in admin. You can change the content in `app/views/partials/_blog_footer.html.erb`.
+
+## References
+* ActiveAdmin: [Active Admin | The administration framework for Ruby on Rails](https://www.activeadmin.info/)
+* Rails: [Ruby on Rails Guides](http://guides.rubyonrails.org/)
+* dotenv: [Dotenv](https://github.com/bkeepers/dotenv)
+* Ruby installation with rbenv and ruby-build: [Installing Ruby with Rbenv - Octopress](http://octopress.org/docs/setup/rbenv/)
+* Basic rake/rails tasks: [The Rails Command Line — Ruby on Rails Guides](http://guides.rubyonrails.org/command_line.html)
+* CSS Background-position property: [CSS background-position property](https://www.w3schools.com/cssref/pr_background-position.asp)
