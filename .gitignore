@@ -6,13 +6,13 @@
 
 # Ignore bundler config.
 /.bundle
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
 !/log/.keep
 !/tmp/sockets
 !/tmp/sockets/.keep
-/blog
 
 /node_modules
 /yarn-error.log
@@ -23,3 +23,4 @@
 .env
 /public
 /db/mysql.sql
+/db/seeds.rb
