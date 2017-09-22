@@ -8,7 +8,7 @@ This blog platform has basic feature for users to post writings (explained below
 * [Supporting Tools](#supporting-tools)
 * [Installation](#installation)
 * [Environment Variables](#environment-variables)
-* [Admin - Username and Password](#admin-username-and-password)
+* [Admin - Username and Password](#admin---username-and-password)
 * [Writing Blogpost](#writing-blogpost)
     * [Writing Blog Content](#writing-blog-content)
         * [Titles](#titles)
