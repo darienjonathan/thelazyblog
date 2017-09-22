@@ -1,7 +1,8 @@
-# #thelazyblog
 `thelazyblog` is a simple blog platform written with Ruby on Rails. It is used to generate http://darienjonathan.com.
 
 This blog platform has basic feature for users to post writings (explained below), and as the blog owner, this platform provides an admin page to write and manage the blog contents.
+
+To help understanding what is written here, [a reference list](#references) is written at the bottom of this readme.
 
 ## Requirements
 You need to have these installed (with listed version or newer ones) in your machine to run this blog:
