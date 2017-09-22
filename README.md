@@ -18,7 +18,7 @@ This blog platform has basic feature for users to post writings (explained below
         * [Other Provided Classes](#other-provided-classes)
     * [Content Images](#content-images)
     * [Header Images](#header-images)
-    * [Signatures](#signatures)
+    * [Signature](#signature)
 * [References](#references)
 
 ## Requirements
