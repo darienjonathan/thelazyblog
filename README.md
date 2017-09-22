@@ -1,8 +1,25 @@
+# #thelazyblog
 `thelazyblog` is a simple blog platform written with Ruby on Rails. It is used to generate http://darienjonathan.com.
 
 This blog platform has basic feature for users to post writings (explained below), and as the blog owner, this platform provides an admin page to write and manage the blog contents.
 
-To help understanding what is written here, [a reference list](#references) is written at the bottom of this readme.
+## Table of Contents
+* [Requirements](#requirements)
+* [Supporting Tools](#supporting-tools)
+* [Installation](#installation)
+* [Environment Variables](#environment-variables)
+* [Admin - Username and Password](#admin-username-and-password)
+* [Writing Blogpost](#writing-blogpost)
+    * [Writing Blog Content](#writing-blog-content)
+        * [Titles](#titles)
+        * [Content Images](#content-images)
+        * [Subtopics](#subtopics)
+        * [Languages](#languages)
+        * [Other Provided Classes](#other-provided-classes)
+    * [Content Images](#content-images)
+    * [Header Images](#header-images)
+    * [Signatures](#signatures)
+* [References](#references)
 
 ## Requirements
 You need to have these installed (with listed version or newer ones) in your machine to run this blog:
@@ -12,7 +29,7 @@ You need to have these installed (with listed version or newer ones) in your mac
 * Rails: 5.1.2
 
 
-## Supporting tools (gems)
+## Supporting Tools
 * ActiveAdmin: admin page
 * minimagick: to save images to database, to display images
 * Carrierwave: to upload files (images, in this case)
@@ -32,7 +49,7 @@ And you’re good to go!
 ## Environment Variables
 look at `.env.example` and provide the appropriate values for your environment.
 
-## Admin: Username & Password
+## Admin - Username and Password
 If you’re in a development environment, you can use the default account provided by activeadmin gem:
 `admin@example.com / password`
 If you’re in a production environment, you need to specify it by yourself:
@@ -60,14 +77,14 @@ Second Paragraph
 </div>
 ```
 
-### Titles
+#### Titles
 you can simply specify the title in the form, or if you’re using header images for your title, you can specify it on its caption.
 
-### Content Images
+#### Content Images
 After you upload content image(s) for a particular blogpost, you can add it to your writing by adding `image[n]`, with `n` is the order of the image for that blogpost.
 Let’s say you have uploaded image A and B, and you want to display it on your post, then you should write `image[0]` to display image A, and `image[1]` to display image B.
 
-### Subtopics
+#### Subtopics
 a subtopic is enclosed by a `p` element with `lead` class with it:
 ```html
 <p class="lead">Subtopic</p>
@@ -93,7 +110,7 @@ Example:
 By doing that, whenever the language link on the top of the page is clicked, only the corresponding content will be showed (the other will be hidden). i.e. if the “日本語” link is clicked, all elements with `en` and `id` on its class will be hidden.
 Element without any language class on it will always be shown regardless of the selected language.
 
-#### Other Provided classes/ids
+#### Other Provided Classes
 usage: add below classname to the class attribute of your specified element.
 i.e. 
 ```html
@@ -134,3 +151,4 @@ At the end of each blog, there’s a signature phrase. Since it does not change 
 * Ruby installation with rbenv and ruby-build: [Installing Ruby with Rbenv - Octopress](http://octopress.org/docs/setup/rbenv/)
 * Basic rake/rails tasks: [The Rails Command Line — Ruby on Rails Guides](http://guides.rubyonrails.org/command_line.html)
 * CSS Background-position property: [CSS background-position property](https://www.w3schools.com/cssref/pr_background-position.asp)
+* Carrierwave: [GitHub - carrierwaveuploader/carrierwave: Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks](https://github.com/carrierwaveuploader/carrierwave)
