@@ -32,10 +32,12 @@ class DeviseCreateAdminUsers < ActiveRecord::Migration[5.1]
 
 
       t.timestamps null: false
+      t.index :email
+      t.index :reset_password_token
     end
 
-    add_index :admin_users, :email,                unique: true, length: 767
-    add_index :admin_users, :reset_password_token, unique: true, length: 767
+    # add_index :admin_users, :email,                unique: true
+    # add_index :admin_users, :reset_password_token, unique: true
     # add_index :admin_users, :confirmation_token,   unique: true
     # add_index :admin_users, :unlock_token,         unique: true
   end
