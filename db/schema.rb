@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170919043941) do
 
-  create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20170919043941) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
-  create_table "admin_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "admin_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20170919043941) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "blogs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "blogs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "title"
     t.string "tag"
     t.text "summary"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20170919043941) do
     t.index ["title"], name: "index_blogs_on_title"
   end
 
-  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "name"
     t.bigint "blog_id"
     t.text "comment"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20170919043941) do
     t.index ["blog_id"], name: "index_comments_on_blog_id"
   end
 
-  create_table "content_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "content_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "url"
     t.string "caption"
     t.string "class_attr", default: "normal-img"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20170919043941) do
     t.index ["blog_id"], name: "index_content_images_on_blog_id"
   end
 
-  create_table "header_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "header_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.boolean "title", default: false
     t.string "url"
     t.string "caption"
