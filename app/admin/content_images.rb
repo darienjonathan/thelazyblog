@@ -4,18 +4,17 @@ ActiveAdmin.register ContentImage do
 
   index do
     column :id
-    column :caption
     column :blog
     column :thumb do |content_image|
       image_tag content_image.url.thumb
     end
+    column :caption
     actions
   end
 
   show do
     attributes_table do
       row :id
-      row :caption
       row :blog
       row "Thumbnail" do
         image_tag resource.url.thumb
@@ -23,6 +22,7 @@ ActiveAdmin.register ContentImage do
       row "Image Class" do
         resource.class_attr
       end
+      row :caption
     end
   end
 
