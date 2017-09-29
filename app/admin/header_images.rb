@@ -9,7 +9,9 @@ ActiveAdmin.register HeaderImage do
     column :thumb do |header_image|
       image_tag header_image.url.small
     end
-    column :caption
+    column :caption do |header_image|
+      header_image.caption.gsub("<br>"," ")
+    end
     actions
   end
 
