@@ -6,7 +6,10 @@ class HeaderImage < ApplicationRecord
   validate :bg_pos_syntax_validation
 
   def title_existence
-    errors.add(:title, 'you can only have one title header per blog') unless HeaderImage.find_by(title: true, blog_id: blog_id) == self || HeaderImage.where(title: true, blog_id: blog_id).empty?
+    return unless title
+    validation = HeaderImage.where(title: true, blog_id: blog_id)
+    validation = new_record? ? validation : validation.where.not(id: id)
+    errors.add(:title, 'you can only have one title header per blog') if validation.present?
   end
 
   def bg_pos_syntax_validation
