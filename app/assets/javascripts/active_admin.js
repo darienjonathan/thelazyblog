@@ -1,5 +1,6 @@
 //= require active_admin/base
-const header_new_url = /\/admin\/header_images(\/new)?/;
+const header_new_url = /\/admin\/(?:blogs\/\d+\/)?header_images(\/new)?/;
+const header_blog_new_url = /\/admin\/blogs(\/new)?/;
 $(document).ready(function(){
 
   //header_image
