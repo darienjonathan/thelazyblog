@@ -2,6 +2,8 @@ class Blog < ApplicationRecord
   has_many :comments
   has_many :content_images
   has_many :header_images
+  accepts_nested_attributes_for :header_images, allow_destroy: true
+  accepts_nested_attributes_for :content_images, allow_destroy: true
   serialize :lang, Array
 
   LANG_ARRAY = ["en", "id", "jp"]

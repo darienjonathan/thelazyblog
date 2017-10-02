@@ -9,10 +9,11 @@ class HeaderImage < ApplicationRecord
     return unless title
     validation = HeaderImage.where(title: true, blog_id: blog_id)
     validation = new_record? ? validation : validation.where.not(id: id)
-    errors.add(:title, 'you can only have one title header per blog') if validation.present?
+    errors.add(:title, 'You already have a title header for this blog') if validation.present?
   end
 
   def bg_pos_syntax_validation
+    return if bg_pos_pc.empty? && bg_pos_sp.empty?
     css_regex = /^(((0|left|right|center|-?\d+(px|%))\s(0|top|center|bottom|-?\d+(px|%)))|inherit|initial)$/
     errors.add(:bg_pos_pc, 'invalid background-position syntax') if bg_pos_pc.match(css_regex).nil?
     errors.add(:bg_pos_sp, 'invalid background-position syntax') if bg_pos_sp.match(css_regex).nil?

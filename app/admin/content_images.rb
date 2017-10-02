@@ -1,5 +1,13 @@
 ActiveAdmin.register ContentImage do
 
+  belongs_to :blog, optional: true
+
+  menu parent: "Images"
+
+  # scope_to do
+  #   Blog.last
+  # end
+
   permit_params :url, :caption, :blog_id, :class_attr
 
   index do

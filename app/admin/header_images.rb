@@ -1,5 +1,9 @@
 ActiveAdmin.register HeaderImage do
 
+  belongs_to :blog, optional: true
+
+  menu parent: "Images"
+
   permit_params :title, :url, :caption, :blog_id, :bg_pos_pc, :bg_pos_sp
 
   index do
@@ -35,17 +39,16 @@ ActiveAdmin.register HeaderImage do
   end
 
   form do |f|
-    f.semantic_errors *f.object.errors.keys
     title_check = f.object.title || f.object.class.where(blog_id: f.object.blog_id, title: true).empty?
     inputs do
-      input :blog
+      input :blog if f.object.blog_id.nil?
       input :title if title_check
       input :url
       input :caption
       input :bg_pos_pc, label: "Background Position (Desktop)",
-        input_html: { placeholder: "Don't change this unless you know what you're doing (i.e. you know CSS) " } if f.object.new_record? || title_check
+        input_html: { placeholder: "Don't change this unless you know what you're doing (i.e. you know CSS)." } if title_check
       input :bg_pos_sp, label: "Background Position (Smartphone)",
-        input_html: { placeholder: "Don't change this unless you know what you're doing (i.e. you know CSS) " } if f.object.new_record? || title_check
+        input_html: { placeholder: "Don't change this unless you know what you're doing (i.e. you know CSS)." } if title_check
     end
     actions
   end
