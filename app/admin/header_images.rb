@@ -1,7 +1,7 @@
 ActiveAdmin.register HeaderImage do
 
+  # belongs_to :blog
   belongs_to :blog, optional: true
-
   menu parent: "Images"
 
   permit_params :title, :url, :caption, :blog_id, :bg_pos_pc, :bg_pos_sp
@@ -41,7 +41,12 @@ ActiveAdmin.register HeaderImage do
   form do |f|
     title_check = f.object.title || f.object.class.where(blog_id: f.object.blog_id, title: true).empty?
     inputs do
-      input :blog if f.object.blog_id.nil?
+      if f.object.blog_id.nil?
+        input :blog
+      else
+        input :blog, input_html: {disabled: true}
+        input :blog_id, as: :hidden, input_html: {value: f.object.blog_id}
+      end
       input :title if title_check
       input :url
       input :caption
