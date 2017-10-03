@@ -22,6 +22,25 @@ ActiveAdmin.register Blog do
     actions
   end
 
+  index as: :block do |blog|
+    div for: blog do
+      hr
+      h2   link_to(blog.title, admin_blog_path(blog.id))
+      span simple_format blog.summary.gsub("<br>"," ")
+    end
+  end
+
+  index as: :blog do
+    title :title
+    body do |blog|
+      div blog.summary
+      br
+      div blog.content
+      br
+      hr
+    end
+  end
+
   show do
     attributes_table do
       row :title
@@ -68,7 +87,7 @@ ActiveAdmin.register Blog do
     actions
   end
 
-  sidebar "coba", only: [:show] do
+  sidebar "Resources", only: [:show, :edit] do
     ul do
       li link_to "Content Images", admin_blog_content_images_path(resource.id)
       li link_to "Headers", admin_blog_header_images_path(resource.id)

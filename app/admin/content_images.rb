@@ -1,7 +1,7 @@
 ActiveAdmin.register ContentImage do
 
+  # belongs_to :blog
   belongs_to :blog, optional: true
-
   menu parent: "Images"
 
   # scope_to do
@@ -18,6 +18,10 @@ ActiveAdmin.register ContentImage do
     end
     column :caption
     actions
+  end
+
+  index as: :grid do |content_image|
+    link_to image_tag(content_image.url.thumb), admin_content_image_path(content_image)
   end
 
   show do
