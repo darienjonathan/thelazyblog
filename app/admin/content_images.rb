@@ -20,10 +20,6 @@ ActiveAdmin.register ContentImage do
     actions
   end
 
-  index as: :grid do |content_image|
-    link_to image_tag(content_image.url.thumb), admin_content_image_path(content_image)
-  end
-
   show do
     attributes_table do
       row :id

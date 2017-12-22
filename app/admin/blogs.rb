@@ -22,25 +22,6 @@ ActiveAdmin.register Blog do
     actions
   end
 
-  index as: :block do |blog|
-    div for: blog do
-      hr
-      h2   link_to(blog.title, admin_blog_path(blog.id))
-      span simple_format blog.summary.gsub("<br>"," ")
-    end
-  end
-
-  index as: :blog do
-    title :title
-    body do |blog|
-      div blog.summary
-      br
-      div blog.content
-      br
-      hr
-    end
-  end
-
   show do
     attributes_table do
       row :title
@@ -66,32 +47,27 @@ ActiveAdmin.register Blog do
       input :created_at
       input :lang, as: :check_boxes, label: "Language", collection: Blog::LANG_ARRAY
     end
-    f.inputs do
-      f.has_many :header_images, heading: "Header Images", allow_destroy: true do |hi|
-        hi.input :title
-        hi.input :url
-        hi.input :caption
-        hi.input :bg_pos_pc, label: "Background Position (Desktop)",
-          input_html: { placeholder: "Don't change this unless you know what you're doing (i.e. you know CSS) " }
-        hi.input :bg_pos_sp, label: "Background Position (Smartphone)",
-          input_html: { placeholder: "Don't change this unless you know what you're doing (i.e. you know CSS) " }
+    if f.object.new_record?
+      f.inputs do
+        f.has_many :header_images, heading: "Header Images", allow_destroy: true do |hi|
+          hi.input :title
+          hi.input :url
+          hi.input :caption
+          hi.input :bg_pos_pc, label: "Background Position (Desktop)",
+            input_html: { placeholder: "Don't change this unless you know what you're doing (i.e. you know CSS) " }
+          hi.input :bg_pos_sp, label: "Background Position (Smartphone)",
+            input_html: { placeholder: "Don't change this unless you know what you're doing (i.e. you know CSS) " }
+        end
       end
-    end
-    f.inputs do
-      f.has_many :content_images, heading: "Content Images", allow_destroy: true do |ci|
-        ci.input :url
-        ci.input :caption
-        ci.input :class_attr, label: "Image Class", as: :radio, collection: ContentImage::IMG_CLASS_ARRAY
+      f.inputs do
+        f.has_many :content_images, heading: "Content Images", allow_destroy: true do |ci|
+          ci.input :url
+          ci.input :caption
+          ci.input :class_attr, label: "Image Class", as: :radio, collection: ContentImage::IMG_CLASS_ARRAY
+        end
       end
     end
     actions
-  end
-
-  sidebar "Resources", only: [:show, :edit] do
-    ul do
-      li link_to "Content Images", admin_blog_content_images_path(resource.id)
-      li link_to "Headers", admin_blog_header_images_path(resource.id)
-    end
   end
 
 end
