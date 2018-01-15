@@ -2,7 +2,8 @@ class CommentsController < InheritedResources::Base
 
   def create
     blog = Blog.find(params[:blog_id])
-    redirect_to blog_path blog if blog.comments.create!(comment_params)
+    flash[:notice] = "Thankyou for the comment!"
+    redirect_to blog_path blog, anchor: "comments" if blog.comments.create!(comment_params)
     
   end
 

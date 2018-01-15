@@ -84,16 +84,17 @@
         comments.click(function(){
           $(this).addClass('active');
           form.removeClass('active');
-          $('#comment--content').show();
-          $('#comment--form').hide();
+          $('#comments--content').show();
+          $('#comments--form').hide();
         })
 
         form.click(function(){
           $(this).addClass('active');
           comments.removeClass('active');
-          $('#comment--content').hide();
-          $('#comment--form').show();
+          $('#comments--content').hide();
+          $('#comments--form').show();
         })
     })();
+    
   })
 </script>

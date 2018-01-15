@@ -1,19 +1,26 @@
-<hr>
+<hr id="separator">
 <div id="comments">
-  <p class="lead"><span id="comments--show-comments">Show Comments</span> | <span id="comments--show-form">Add Comment</span></p>
-    <div id="comment--content">
-      <% @blog.comments.each do |comment| %>
+  <a href="#comments"></a>
+  <p class="lead">
+    <span id="comments--show-comments">Show Comments</span> | <span id="comments--show-form">Add Comment</span>
+  </p>
+  <p id="comments--notice"><%= flash[:notice] if flash[:notice].present? %></p>
+    <div id="comments--content">
+      <% @blog.comments.order(id: :desc).each do |comment| %>
         <div class="comment">
           <div class="comment--name"><%= comment.name %></div>
           <div class="comment--comment"><%= comment.comment %></div>
+          <div class="comment--time"><%= comment.created_at.strftime("%A, %Y/%m/%d") %></div>
         </div>
       <% end %>
     </div>
-    <div id="comment--form">
+    <div id="comments--form">
       <%= form_with model: [@blog, @blog.comments.build] do |f| %>
-        <%= f.text_field :name %>
-        <%= f.text_field :comment %>
-        <%= f.submit "Add Comment" %>
+        <table id="comment--form-table">
+          <tr><td>Name:</td><td><%= f.text_field :name %></td></tr>
+          <tr><td> Comment:</td><td><%= f.text_area :comment, cols: 80, rows: 5 %></td></tr>
+          <tr><td><%= f.submit "Add Comment" %></td></tr>
+        </table>
       <% end %>
 
     </div>
