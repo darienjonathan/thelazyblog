@@ -1,0 +1,20 @@
+<hr>
+<div id="comments">
+  <p class="lead"><span id="comments--show-comments">Show Comments</span> | <span id="comments--show-form">Add Comment</span></p>
+    <div id="comment--content">
+      <% @blog.comments.each do |comment| %>
+        <div class="comment">
+          <div class="comment--name"><%= comment.name %></div>
+          <div class="comment--comment"><%= comment.comment %></div>
+        </div>
+      <% end %>
+    </div>
+    <div id="comment--form">
+      <%= form_with model: [@blog, @blog.comments.build] do |f| %>
+        <%= f.text_field :name %>
+        <%= f.text_field :comment %>
+        <%= f.submit "Add Comment" %>
+      <% end %>
+
+    </div>
+</div>
