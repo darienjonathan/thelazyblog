@@ -67,8 +67,16 @@ body{
   display: none;
 }
 
-#comment--form-table>tbody>tr>td{
+#comments--form--table > tbody > tr > td{
   padding: 5px 0 5px 0;
+  &:first-child{
+    vertical-align: top;
+  }
+}
+
+#comments--form--table--textarea{
+  width: 54vw;
+  max-width: 54vw;
 }
 
 .comment--name{

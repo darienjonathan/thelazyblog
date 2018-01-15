@@ -45,4 +45,9 @@ class Blog < ApplicationRecord
      Rails.root.join(DEFAULT_CSS_PATH,"#{css_file_name}.scss")
   end
 
+  #activeadmin
+  def blog_comments
+    comments
+  end
+
 end

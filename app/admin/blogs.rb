@@ -19,6 +19,9 @@ ActiveAdmin.register Blog do
     column "Header Images" do |blog|
       link_to "view", admin_blog_header_images_path(blog.id)
     end
+    column "Comments" do |blog|
+      link_to "view", admin_blog_blog_comments_path(blog.id)
+    end
     actions
   end
 
