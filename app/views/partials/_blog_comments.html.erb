@@ -16,9 +16,9 @@
     </div>
     <div id="comments--form">
       <%= form_with model: [@blog, @blog.comments.build] do |f| %>
-        <table id="comment--form-table">
+        <table id="comments--form--table">
           <tr><td>Name:</td><td><%= f.text_field :name %></td></tr>
-          <tr><td> Comment:</td><td><%= f.text_area :comment, cols: 80, rows: 5 %></td></tr>
+          <tr><td>Comment:</td><td id="comments--form--table--textarea"><%= f.text_area :comment, rows: 7 %></td></tr>
           <tr><td><%= f.submit "Add Comment" %></td></tr>
         </table>
       <% end %>
