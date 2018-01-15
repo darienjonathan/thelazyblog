@@ -7,12 +7,14 @@
   sp: title_header.try(:bg_pos_sp) || "center center" 
 } %>
 
-<div class="post">
+<div id="post">
   <%= render "partials/blog_header", blog: @blog, header_image: title_header %>
   <% content = add_content %>
   <%= raw content %>
   <%= render "partials/blog_footer" %>
 </div>
+
+<%= render "partials/blog_comments", blog: @blog %>
 
 <script>
   $(document).ready(function(){
@@ -74,5 +76,25 @@
         })
       }    
     })();
+
+    (function(){
+      let comments = $('#comments--show-comments'),
+      form = $('#comments--show-form')
+      
+        comments.click(function(){
+          $(this).addClass('active');
+          form.removeClass('active');
+          $('#comments--content').show();
+          $('#comments--form').hide();
+        })
+
+        form.click(function(){
+          $(this).addClass('active');
+          comments.removeClass('active');
+          $('#comments--content').hide();
+          $('#comments--form').show();
+        })
+    })();
+    
   })
 </script>
