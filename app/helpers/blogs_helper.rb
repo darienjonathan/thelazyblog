@@ -13,4 +13,9 @@ module BlogsHelper
     arr.join("")
   end
 
+  def column_class_name column_num, blogs_num
+    class_name = "small-12 large-4 columns"
+    class_name = column_num == blogs_num - 1 ? "#{class_name} end" : class_name
+  end
+
 end
