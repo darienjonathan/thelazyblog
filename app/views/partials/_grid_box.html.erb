@@ -1,6 +1,7 @@
 <div class = "row">
   <% for i in 0..blogs.length-1 do %>
   <div class = "<%= column_class_name(i, blogs.length) %>">
+    <div style = "<%= get_background(blogs[i])%>"></div>
     <div class = "section-title">
       <%= blogs[i].title %>
     </div>
