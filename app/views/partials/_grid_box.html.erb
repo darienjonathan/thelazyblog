@@ -1,12 +1,14 @@
 <div class = "row">
   <% for i in 0..blogs.length-1 do %>
-  <div class = "small-12 large-4 columns">
-    <div class = "section-title"><%= blogs[i].title %></div>
+  <div class = "<%= column_class_name(i, blogs.length) %>">
+    <div class = "section-title">
+      <%= blogs[i].title %>
+    </div>
     <div class = "section-brief">
       <span style="float:right"><%= blogs[i].created_at.strftime("%A, %d %B %Y") %></span><br><br>
       <%= raw blogs[i].summary %>
-      <%= link_to "Read More・続きを読む", blogs[i] %>
     </div>
+    <%= link_to "Read More・続きを読む", blogs[i], class: "read-more" %>
   </div>
   <% end %>
 </div>
