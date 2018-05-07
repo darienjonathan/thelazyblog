@@ -3,25 +3,25 @@
   background-position: center center;
   background-size: cover;
 
-  .blog-name-tag{
+  .blog-name-tag {
     padding: 40px 20px 10px 20px;
     font-weight: bold;
     background-color: rgba(255, 255, 255, 0.75);
-    .blog-tag{
+    .blog-tag {
       font-size: 1.1em;
       font-family: 'Merriweather', sans-serif;
     }
 
-    .lang_wrapper{
+    .lang_wrapper {
       margin: 0 auto;
       border-collapse: collapse;
       border-style: hidden;
       
-      td{
+      td {
         border: 3px solid black;
       }
 
-      .lang{
+      .lang {
         text-align: center;
         cursor: pointer;
         color: red;
@@ -30,7 +30,7 @@
           -ms-transition: color 0.15s linear;
           -o-transition: color 0.15s linear;
           transition: color 0.15s linear;
-        &:hover, &.active{
+        &:hover, &.active {
           color: turquoise;
         }
       }
@@ -38,7 +38,7 @@
   }
 
   //blog that has hero
-  .hero-content{
+  .hero-content {
     position: relative;
     top: 50%;
     left: 50%;
@@ -48,14 +48,14 @@
     color: white;
     background-color: rgba(0,0,0,0.5);
     padding: 50px;
-    .hero-text{
+    .hero-text {
       font-family: 'Prociono', serif;
       font-size: 3.5rem;
     }
   }
 
   //blog that doesn't have hero
-  .heroless-title{
+  .heroless-title {
     font-family: 'Prociono', serif;
     font-size: 2rem;
     margin-left: 20px;
@@ -63,9 +63,9 @@
 }
 
 @media screen and (max-width: 600px){
-  .hero > .hero-content{
+  .hero > .hero-content {
     padding: 20px;
-    .hero-text{
+    .hero-text {
       font-size: 2rem;
     }
   }
