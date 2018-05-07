@@ -1,32 +1,32 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Slab|Prociono|Lato|Merriweather|Raleway:500');
 
 /* Text Styles */
-.bold{
+.bold {
   font-weight: bold;
 }
-.italic{
+.italic {
   font-style: italic;
 }
-.underline{
+.underline {
   text-decoration: underline;
 }
-.center{
+.center {
   text-align: center;
 }
-.justify{
+.justify {
   text-align: justify;
 }
-.signature{
+.signature {
   @extend .bold;
   @extend .center;
   font-family: 'merriweather', serif;
 }
-ul>li{
+ul>li {
   @extend .justify;
 }
-.close-button{
+.close-button {
   font-size: 1.1rem;
 }
-.lead{
+.lead {
   font-family: 'merriweather', serif;
 }
