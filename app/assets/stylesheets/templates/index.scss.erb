@@ -66,13 +66,14 @@ header {
   max-width: 100vw;
 }
 .row:first-child > .columns:first-child {
-  background-color: rgba(0, 0, 255, 0.75);
-  @include transition(0.25s);
+  & > .section-title {
+    background: rgba(0, 0, 255, 0.25);
+  }
   &, .read-more {
     color: black;
   }
+  @include transition(0.25s);
   &:hover {
-    background-color: black;
     &, & > .read-more {
       color: blue;
     }
@@ -86,7 +87,7 @@ header {
     padding: 5px;
     @include transition(0.25s);
     &:hover {
-      background-color: rgba(0, 0, 255, 0.5);
+      background-color: rgba(0, 0, 255, 0.25);
     }
     &:hover > .read-more {
       color: white;
@@ -124,7 +125,7 @@ header {
 
 
 @media screen and (max-width: 600px) {
-  .blog-title>span {
+  .blog-title > span {
     display: block;
     font-size: 2em;
   }
@@ -135,5 +136,8 @@ header {
   }
   .section-title {
     background: linear-gradient(to bottom, rgba(128, 128, 128, 0.5), rgba(128, 128, 128, 0));
+  }
+  .row:first-child > .columns:first-child > .section-title {
+    background: linear-gradient(to bottom, rgba(0, 0, 255, 0.5), rgba(0, 0, 255, 0));
   }
 }
