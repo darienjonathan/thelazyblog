@@ -1,4 +1,6 @@
 <%= stylesheet_link_tag 'templates/blog' %>
+<%= stylesheet_link_tag 'partials/hero' %>
+<%= stylesheet_link_tag 'partials/comments' %>
 
 <% title_header =  @blog.header_images.where(title: true).first %>
 <% header_bg_pos = {
