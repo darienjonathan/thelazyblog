@@ -1,12 +1,12 @@
 class BlogsController < InheritedResources::Base
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.all.decorate
     set_meta_tags(meta_tag index_meta_tags)
   end
 
   def show
-    @blog = Blog.find_by(permalink_param)
+    @blog = Blog.find_by(permalink_param).try(:decorate)
     if @blog.nil?
       redirect_to blogs_path
     else

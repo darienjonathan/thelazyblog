@@ -1,12 +1,12 @@
 <div class = "row">
   <% for i in 0..blogs.length-1 do %>
-  <div class = "<%= column_class_name(i, blogs.length) %>">
-    <div style = "<%= get_background(blogs[i])%>"></div>
+  <div class = "<%= blogs[i].column_class_name %>">
+    <div style = "<%= blogs[i].get_background %>"></div>
     <div class = "section-title">
       <%= blogs[i].title %>
     </div>
     <div class = "section-brief">
-      <span style="float:right"><%= blogs[i].created_at.strftime("%A, %d %B %Y") %></span><br><br>
+      <span style = "float:right"><%= blogs[i].created_at.strftime("%A, %d %B %Y") %></span><br><br>
       <%= raw blogs[i].summary %>
     </div>
     <%= link_to "Read More・続きを読む", blog_path(permalink: blogs[i][:permalink]), class: "read-more" %>
