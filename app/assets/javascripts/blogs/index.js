@@ -6,7 +6,7 @@ $(() => {
 
   if (window.matchMedia('(max-width: 600px)').matches) {
     $('.index-header').css("height", window.innerHeight*0.8);
-    $('.blog-title').css("padding-top", window.innerHeight*0.225);
+    $('.blog-title').css("padding-top", window.innerHeight*0.25);
     $('.columns').css("height", window.innerHeight*0.6);
   }
 
