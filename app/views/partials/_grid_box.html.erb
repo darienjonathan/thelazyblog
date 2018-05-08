@@ -9,7 +9,7 @@
       <span style="float:right"><%= blogs[i].created_at.strftime("%A, %d %B %Y") %></span><br><br>
       <%= raw blogs[i].summary %>
     </div>
-    <%= link_to "Read More・続きを読む", blogs[i], class: "read-more" %>
+    <%= link_to "Read More・続きを読む", blog_path(permalink: blogs[i][:permalink]), class: "read-more" %>
   </div>
   <% end %>
 </div>

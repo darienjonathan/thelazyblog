@@ -9,6 +9,14 @@ class Blog < ApplicationRecord
   LANG_ARRAY = ["en", "id", "jp"]
 
   validate :lang_valid?
+  validates :permalink, format: {
+                          with: /\A[a-z0-9\._-]*\z/i,
+                          message: "は半角英字、数字、ハイフンまたはアンダースコアで記入して下さい"
+                        },
+                        presence: {
+                          message: "を記入してください"
+                        },
+                        uniqueness: true
 
   before_validation :lang_array_omit_empty
 
