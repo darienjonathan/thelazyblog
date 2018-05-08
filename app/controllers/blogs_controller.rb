@@ -21,7 +21,7 @@ class BlogsController < InheritedResources::Base
         title: "#thelazyblog",
         og_title: "darienjonathan's #thelazyblog",
         description: "Jack of the Trades Who Loves to Share His Treads",
-        image: view_context.asset_path("og.jpg")
+        image: view_context.asset_path("ogp.jpg")
       }
     end
 

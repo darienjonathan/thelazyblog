@@ -19,13 +19,14 @@ body {
 
 .index-header {
   height: 80vh;
-  background: url(<%= asset_path 'bg.jpg' %>);
+  background: url(<%= asset_path 'background.jpg' %>);
+  background-position: right bottom;
 }
 
 .blog-title {
-  padding: 15vh 5vw 0 5vw;
+  padding: 20vh 5vw 0 5vw;
   text-align: center;
-  font-size: 1.1em;
+  font-size: 1em;
   font-family: 'merriweather', sans-serif;
   &>span {
     font-family: 'prociono', serif;
@@ -36,12 +37,17 @@ body {
   }
 }
 
+.blog-slogan {
+  font-size: 0.85em;
+}
+
 #sns-link {
   padding-top: 30px;
   @extend .center;
+  font-size: 0.85em;
   &>a {
     padding: 0 10px 0 10px;
-    color: turquoise(0.5,1);
+    color: rgba(0, 0, 255, 0.5);
     @include transition(0.25s);
     @extend .underline;
     @extend .bold;
