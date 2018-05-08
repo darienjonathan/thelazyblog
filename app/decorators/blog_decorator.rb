@@ -15,7 +15,7 @@ class BlogDecorator < Draper::Decorator
   def get_background
     header_image = object.header_images[0]
     if header_image
-      "position: absolute; background-image: url(#{asset_path header_image.url}); background-position: #{header_image.bg_pos_sp}; opacity: 0.1; top: 0; left: 0; bottom: 0; right: 0; z-index: 1"
+      "background-image: url(#{asset_path header_image.url}); background-position: #{header_image.bg_pos_sp};"
     end
   end
 
