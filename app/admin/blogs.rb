@@ -1,6 +1,6 @@
 ActiveAdmin.register Blog do
 
-  permit_params :id, :title, :summary, :tag, :stars, :content, :created_at, :lang => [],
+  permit_params :id, :title, :summary, :tag, :stars, :content, :created_at, :permalink, :lang => [],
     header_images_attributes: [:id, :title, :url, :caption, :bg_pos_pc, :bg_pos_sp, :_destroy],
     content_images_attributes: [:url, :caption, :blog_id, :class_attr, :_destroy]
 
@@ -10,8 +10,8 @@ ActiveAdmin.register Blog do
     column :tag
     column :stars
     column :lang
-    column :link do |blog|
-      link_to 'view blog', blog_path(blog)
+    column :permalink do |blog|
+      link_to blog[:permalink], blog_path(blog)
     end
     column "Content Images" do |blog|
       link_to "view", admin_blog_content_images_path(blog.id)
@@ -32,6 +32,7 @@ ActiveAdmin.register Blog do
       row :summary
       row :content
       row :stars
+      row :permalink
       row :created_at
       row "Language" do
         resource.lang
@@ -49,6 +50,7 @@ ActiveAdmin.register Blog do
       input :content
       input :created_at
       input :lang, as: :check_boxes, label: "Language", collection: Blog::LANG_ARRAY
+      input :permalink
     end
     if f.object.new_record?
       f.inputs do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171002070642) do
+ActiveRecord::Schema.define(version: 20180508010604) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "namespace"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 20171002070642) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "lang"
+    t.string "permalink", null: false
+    t.index ["permalink"], name: "index_blogs_on_permalink"
     t.index ["tag"], name: "index_blogs_on_tag"
     t.index ["title"], name: "index_blogs_on_title"
   end

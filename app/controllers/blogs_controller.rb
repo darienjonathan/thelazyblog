@@ -6,8 +6,12 @@ class BlogsController < InheritedResources::Base
   end
 
   def show
-    @blog = params[:id].to_i == 0 ? Blog.where(title: params[:id].gsub(/[-_]/," ")).first : Blog.find(params[:id])
-    set_meta_tags(meta_tag(@blog.meta_tag))
+    @blog = Blog.find_by(permalink_param)
+    if @blog.nil?
+      redirect_to blogs_path
+    else
+      set_meta_tags(meta_tag(@blog.meta_tag))
+    end
   end
 
   private
@@ -23,5 +27,9 @@ class BlogsController < InheritedResources::Base
 
     def blog_params
       params.require(:blog).permit(:title, :tag, :summary, :header, :header_img, :content, :stars, :lang)
+    end
+
+    def permalink_param
+      params.permit(:permalink)
     end
 end
