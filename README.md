@@ -34,6 +34,7 @@ You need to have these installed (with listed version or newer ones) in your mac
 * minimagick: to save images to database, to display images
 * Carrierwave: to upload files (images, in this case)
 * Dotenv: to manage environment variables
+* Draper: to manage the presentation layer (instead of using helpers)
 
 ## Installation
 If you want to start from zero (i.e. to setup an empty server to be able to run this app), see [chef branch](https://github.com/darienjonathan/thelazyblog-chef). If you already have the necessary environment to run rails-based app:

@@ -9,8 +9,7 @@
 
 <div id="post">
   <%= render "partials/blogs/header", blog: @blog, header_image: title_header %>
-  <% content = add_content %>
-  <%= raw content %>
+  <%= raw @blog.add_content %>
   <%= render "partials/blogs/footer" %>
 </div>
 
