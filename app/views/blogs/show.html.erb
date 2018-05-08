@@ -2,7 +2,7 @@
 <%= stylesheet_link_tag 'partials/hero' %>
 <%= stylesheet_link_tag 'partials/comments' %>
 
-<% title_header =  @blog.header_images.where(title: true).first %>
+<% title_header = @blog.header_images.where(title: true).first %>
 <% header_bg_pos = {
   pc: title_header.try(:bg_pos_pc) || "center center",
   sp: title_header.try(:bg_pos_sp) || "center center" 
