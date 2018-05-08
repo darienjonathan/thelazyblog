@@ -8,13 +8,13 @@
 } %>
 
 <div id="post">
-  <%= render "partials/blog_header", blog: @blog, header_image: title_header %>
+  <%= render "partials/blogs/header", blog: @blog, header_image: title_header %>
   <% content = add_content %>
   <%= raw content %>
-  <%= render "partials/blog_footer" %>
+  <%= render "partials/blogs/footer" %>
 </div>
 
-<%= render "partials/blog_comments", blog: @blog %>
+<%= render "partials/comments/list_form", blog: @blog %>
 
 <script>
   $(document).ready(function(){
