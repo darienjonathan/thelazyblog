@@ -15,3 +15,4 @@
 //= require rails-ujs
 //= require foundation
 //= require turbolinks
+//= require blogs

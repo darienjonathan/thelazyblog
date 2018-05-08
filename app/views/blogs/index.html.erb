@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag 'templates/index' %>
 
-<header>
+<header class="index-header">
   <div class="blog-title">
     Darien Jonathan's<span>#thelazyblog</span><br><br>
     -Jack of the trades who likes to share his treads-
@@ -17,13 +17,3 @@
 <content>
 <%= raw @blogs.index_grid_box %>
 </content>
-<script>
-  $(function(){
-    $(document).foundation();
-  });
-  if(window.matchMedia('(max-width: 600px)').matches) {
-    $('header').css("height", window.innerHeight*0.8);
-    $('.blog-title').css("padding-top", window.innerHeight*0.15);
-    $('.columns').css("height", window.innerHeight*0.6);
-  }
-</script>
