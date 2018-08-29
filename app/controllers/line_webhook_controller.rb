@@ -9,17 +9,14 @@ class LineWebhookController < ApplicationController
 
     events = client.parse_events_from(body)
     events.each { |event|
-
       inst_var = event.instance_variable_get(:@src)
-
-      logger.debug(inst_var)
       user_id = client.get_profile(inst_var['source']['userId'])
       case user_id
       when Net::HTTPSuccess then
         contact = JSON.parse(user_id.body)
-        logger.debug(contact)
       else
-        logger.debug("#{response.code} #{response.body}")
+        logger.error("#{response.code} #{response.body}")
+        head response.code
       end
 
       case event
@@ -28,14 +25,14 @@ class LineWebhookController < ApplicationController
         when Line::Bot::Event::MessageType::Text
           message = {
             type: 'text',
-            text: "Hello! Ini Message Kamu Tadi: #{event.message['text']}"
+            text: "Hello, #{contact['displayName']}! Ini Message Kamu Tadi: #{event.message['text']}"
           }
           client.reply_message(event['replyToken'], message)
         end
       end
     }
 
-    "OK"
+    head :ok
   end
 
 end
