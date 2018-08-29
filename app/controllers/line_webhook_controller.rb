@@ -12,16 +12,14 @@ class LineWebhookController < ApplicationController
 
       inst_var = event.instance_variable_get(:@src)
 
-      p inst_var
+      logger.debug(inst_var)
       user_id = client.get_profile(inst_var['source']['userId'])
       case user_id
       when Net::HTTPSuccess then
         contact = JSON.parse(user_id.body)
-        p contact['displayName']
-        p contact['pictureUrl']
-        p contact['statusMessage']
+        logger.debug(contact)
       else
-        p "#{response.code} #{response.body}"
+        logger.debug("#{response.code} #{response.body}")
       end
 
       case event
@@ -30,13 +28,9 @@ class LineWebhookController < ApplicationController
         when Line::Bot::Event::MessageType::Text
           message = {
             type: 'text',
-            text: "Hello, #{contact['displayName']}! Ini Message Kamu Tadi: #{event.message['text']}"
+            text: "Hello! Ini Message Kamu Tadi: #{event.message['text']}"
           }
           client.reply_message(event['replyToken'], message)
-        when Line::Bot::Event::MessageType::Audio
-          response = client.get_message_content(event.message['id'])
-          tf = Tempfile.open("content")
-          a = tf.write(response.body)          
         end
       end
     }
