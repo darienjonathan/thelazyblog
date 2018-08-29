@@ -23,11 +23,12 @@ class LineWebhookController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          message = {
-            type: 'text',
-            text: "Hello, #{contact['displayName']}! Ini Message Kamu Tadi: #{event.message['text']}"
-          }
-          client.reply_message(event['replyToken'], message)
+          logger.debug(event)
+          # message = {
+          #   type: 'text',
+          #   text: "Hello, #{contact['displayName']}! Ini Message Kamu Tadi: #{event.message['text']}"
+          # }
+          # client.reply_message(event['replyToken'], message)
         end
       end
     }
