@@ -23,12 +23,55 @@ class LineWebhookController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          logger.debug(event)
-          # message = {
-          #   type: 'text',
-          #   text: "Hello, #{contact['displayName']}! Ini Message Kamu Tadi: #{event.message['text']}"
-          # }
-          # client.reply_message(event['replyToken'], message)
+          message = {
+            type: "flex",
+            altText: "This is Flex Message",
+            contents: 
+            {
+              type: "bubble",
+              hero: {
+                type: "image",
+                url: "http://www.slate.com/content/dam/slate/blogs/lexicon_valley/2014/02/13/doge_why_we_can_t_agree_on_how_to_pronounce_the_internet_meme_featuring/wowsuchgrammarsoteach.jpg.CROP.promovar-mediumlarge.jpg",
+                size: "full",
+                aspectMode: "fit"
+              },
+              body: {
+                type: "box",
+                layout: "vertical",
+                spacing: "md",
+                contents: [
+                  {
+                    type: "button",
+                    style: "primary",
+                    action: {
+                      type: "uri",
+                      label: "Primary style button",
+                      uri: "https://darienjonathan.com"
+                    }
+                  },
+                  {
+                    type: "button",
+                    style: "secondary",
+                    action: {
+                      type: "uri",
+                      label: "Secondary style button",
+                      uri: "https://darienjonathan.com"
+                    }
+                  },
+                  {
+                    type: "button",
+                    style: "link",
+                    action: {
+                      type: "uri",
+                      label: "Link style button",
+                      uri: "https://darienjonathan.com"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+          client.reply_message(event['replyToken'], message)
         end
       end
     }
