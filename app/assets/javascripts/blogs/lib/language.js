@@ -4,7 +4,7 @@ module.exports = () => {
   jp = document.querySelectorAll('.jp');
 
   if(id.length > 0){
-    document.getElementById('lang_id').addEventListener('click', () => {
+    $('#lang_id').addEventListener('click', () => {
       $(this).addClass('active');
       $('#lang_en').removeClass('active');
       $('#lang_jp').removeClass('active');
@@ -17,7 +17,7 @@ module.exports = () => {
   }
   
   if(en.length > 0){
-    document.getElementById('lang_en').addEventListener('click', () => {
+    $('#lang_en').addEventListener('click', () => {
       $(this).addClass('active');
       $('#lang_id').removeClass('active');
       $('#lang_jp').removeClass('active');
@@ -30,7 +30,7 @@ module.exports = () => {
   }
 
   if(jp.length > 0){
-    document.getElementById('lang_jp').addEventListener('click', () => {
+    $('#lang_jp').addEventListener('click', () => {
       $(this).addClass('active');
       $('#lang_en').removeClass('active');
       $('#lang_id').removeClass('active');
