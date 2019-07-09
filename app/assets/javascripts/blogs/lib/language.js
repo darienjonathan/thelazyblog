@@ -4,8 +4,8 @@ module.exports = () => {
   jp = document.querySelectorAll('.jp');
 
   if(id.length > 0){
-    $('#lang_id').addEventListener('click', () => {
-      $(this).addClass('active');
+    document.getElementById('lang_id').addEventListener('click', () => {
+      $('#lang_id').addClass('active');
       $('#lang_en').removeClass('active');
       $('#lang_jp').removeClass('active');
       for(let i = 0; i < id.length; i++){
@@ -17,8 +17,8 @@ module.exports = () => {
   }
   
   if(en.length > 0){
-    $('#lang_en').addEventListener('click', () => {
-      $(this).addClass('active');
+    document.getElementById('lang_en').addEventListener('click', () => {
+      $('#lang_en').addClass('active');
       $('#lang_id').removeClass('active');
       $('#lang_jp').removeClass('active');
       for(let i = 0; i < en.length; i++){
@@ -30,8 +30,8 @@ module.exports = () => {
   }
 
   if(jp.length > 0){
-    $('#lang_jp').addEventListener('click', () => {
-      $(this).addClass('active');
+    document.getElementById('lang_jp').addEventListener('click', () => {
+      $('#lang_jp').addClass('active');
       $('#lang_en').removeClass('active');
       $('#lang_id').removeClass('active');
       for(let i = 0; i < jp.length; i++){
