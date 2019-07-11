@@ -8,7 +8,7 @@ module.exports = () => {
     langSelectorElementsObj[lang] = $(`#lang_${lang}`)
   })
 
-  const toggleLang = (selectedLang) => {
+  const toggleContentLang = (selectedLang) => {
     langList.forEach(lang => {
       const display = lang === selectedLang ? 'block' : 'none'
       setDisplay(textElementsObj[lang], display)
@@ -28,6 +28,11 @@ module.exports = () => {
     })
   }
 
+  const toggleLang = (lang) => {
+    toggleLangSelectorEffect(lang)
+    toggleContentLang(lang)
+  }
+
   const initialize = () => {
     let shown = false
     langList.forEach(lang => {
@@ -37,7 +42,6 @@ module.exports = () => {
           shown = true
         }
         langSelectorElementsObj[lang].click(() => {
-          toggleLangSelectorEffect(lang)
           toggleLang(lang)
         })
       }
