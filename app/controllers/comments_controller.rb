@@ -1,4 +1,5 @@
 class CommentsController < InheritedResources::Base
+  skip_before_action :verify_authenticity_token
 
   def create
     blog = Blog.find(params[:blog_id])
