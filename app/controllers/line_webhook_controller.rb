@@ -31,7 +31,7 @@ class LineWebhookController < ApplicationController
               type: "bubble",
               hero: {
                 type: "image",
-                url: "http://www.slate.com/content/dam/slate/blogs/lexicon_valley/2014/02/13/doge_why_we_can_t_agree_on_how_to_pronounce_the_internet_meme_featuring/wowsuchgrammarsoteach.jpg.CROP.promovar-mediumlarge.jpg",
+                url: "https://www.slate.com/content/dam/slate/blogs/lexicon_valley/2014/02/13/doge_why_we_can_t_agree_on_how_to_pronounce_the_internet_meme_featuring/wowsuchgrammarsoteach.jpg.CROP.promovar-mediumlarge.jpg",
                 size: "full",
                 aspectMode: "fit"
               },
