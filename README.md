@@ -156,6 +156,60 @@ The order of the header upload is considered in your blogpost - `header[0]` will
 ### Signature
 At the end of each blog, there’s a signature phrase. Since it does not change in every blogpost, I’m not planning to manage it in admin. You can change the content in `app/views/partials/_blog_footer.html.erb`.
 
+## Capistrano
+When you want to have a server running your code, what you do is:
+1. store the code in a repository (e.g. github)
+2. connect into your remote server
+3. copy (clone) the code into your server
+4. execute required commands/additional tasks to run the app (e.g. run app server, manage databases, etc).
+
+Basically, capistrano does all that for you, if you configure it properly.
+
+### Capistrano Installation
+Prerequisites: Ruby, bundler
+Steps: put this in your `Gemfile`:
+```ruby
+group :development do
+  gem "capistrano", "~> 3.9"
+end
+```
+then run `bundle install --path=vendor/bundle`.
+Capistrano alone is… pretty useless. so, you would want to add more capistrano-related gems to run tool specific tasks while deploying. for example, if you want to deploy a rails applicaton then you should add `gem ‘capistrano-rails’, ‘~>1.3’` to run rails tasks while deploying with capistrano.
+
+Just google `capistrano {tool_name}` to search for gems for running that `{tool_name}`’s task with capistrano. I’m using `rails` (web framework), `rbenv` (ruby version manager), `puma` (ruby app server), and `bundler` (ruby package manager), so I added `capistrano-rails`, `capistrano-rbenv`, `capistrano3-puma`, and `capistrano-bundler` in my gemfile.
+
+### Settings
+Run `bundle exec cap install`, then some files and directories will be created:
+
+#### Capfile
+File to manage dependencies, to run tasks or commands needed to deploy the code. It:
+  * lists all dependencies (tools) that you want to use when deploying - `require {tools_name}`
+  * installs the enabled dependencies’ tools (if needed) - `install_plugin {Tool::Class}`
+  * load custom tasks (if you have any defined) - `Dir.glob(“/dir/to/task”).each{|r| import r}`
+
+#### lib/capistrano/tasks
+Place to write rake tasks (and be included in capfile and be executed in deployment if you want to).
+
+#### config/deploy.rb
+Basic configuration for the code you want to deploy:
+  * application name
+  * the repository’s URL you want the code to be deployed
+  * which branch of that repository’s URL
+  * remote server’s target directory - `/path/to/dir/`. If the deployment is successful, the actual code will be deployed in `/path/to/dir/current/`.
+  * and other settings.
+  
+Two properties that deserves a special mention:
+  * `linked_files`: list of files that will be symlinked (windows language: shortcut) to the actual file in your shared directory (`/path/to/dir/shared/symlinked_file`)
+  * `linked_dirs`: same as `linked_files` but for directories.
+  
+This way, files included in `linked_files` and `linked_dirs` will always be included across deployments, since every deployment will create shortcuts to the actual files at the shared directory.
+Example: `linked_files “.env.production"` means that in your deployment directory `/path/to/dir/current` there will be a shortcut `.env.production` that points to the actual file (`/path/to/dir/shared/.env.production`).
+
+#### config/deploy/{environment}.rb
+Basic configuration for your target server, like.. where to deploy, the environment of the deployment, which SSH key you want to use to connect to the target server, and so on
+
+There’s actually a role settings, but I don’t know how to utilize that, so I’m gonna skip that for now.
+
 ## References
 * ActiveAdmin: [Active Admin | The administration framework for Ruby on Rails](https://www.activeadmin.info/)
 * Rails: [Ruby on Rails Guides](http://guides.rubyonrails.org/)
