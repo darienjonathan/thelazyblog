@@ -2,10 +2,10 @@
 
 ## THE CAPISTRANO HAS BEEN MOVED FROM THE CHEF REPO TO HERE
 
-The capistrano has been moved from the [chef repo](https://github.com/darienjonathan/thelazyblog-chef) to here.
+The capistrano has been moved from the [chef repo](https://github.com/darienjonathan/thelazyblog-chef) to here.  
 The reasoning of this move is to enable Capistrano to run `rake precompile:assets` locally, which requires Capsitrano to reside in the main repository.  
-The explanation about capistrano and its usage will be written here to show the readers about how to use the capistrano,  
-and the ones on the [chef repo](https://github.com/darienjonathan/thelazyblog-chef) will be be kept as it is, to give readers overall knowledge about provisioning and deployment.
+  
+The explanation about capistrano and its usage will be written here to show the readers about how to use the capistrano, and the ones on the [chef repo](https://github.com/darienjonathan/thelazyblog-chef) will be be kept as it is, to give readers overall knowledge about provisioning and deployment.
 
 ## Introduction
 `thelazyblog` is a simple blog platform written with Ruby on Rails. It is used to generate http://darienjonathan.com.
