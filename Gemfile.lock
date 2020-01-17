@@ -141,7 +141,7 @@ GEM
       request_store (~> 1.0)
     erubi (1.6.1)
     execjs (2.7.0)
-    ffi (1.9.18)
+    ffi (1.12.1)
     firebase (0.2.6)
       httpclient
       json
