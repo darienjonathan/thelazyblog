@@ -1,4 +1,13 @@
 # #thelazyblog
+
+## THE CAPISTRANO HAS BEEN MOVED FROM THE CHEF REPO TO HERE
+
+The capistrano has been moved from the [chef repo](https://github.com/darienjonathan/thelazyblog-chef) to here.  
+The reasoning of this move is to enable Capistrano to run `rake precompile:assets` locally, which requires Capsitrano to reside in the main repository.  
+  
+The explanation about capistrano and its usage will be written here to show the readers about how to use the capistrano, and the ones on the [chef repo](https://github.com/darienjonathan/thelazyblog-chef) will be be kept as it is, to give readers overall knowledge about provisioning and deployment.
+
+## Introduction
 `thelazyblog` is a simple blog platform written with Ruby on Rails. It is used to generate http://darienjonathan.com.
 
 This blog platform has basic feature for users to post writings (explained below), and as the blog owner, this platform provides an admin page to write and manage the blog contents.
@@ -19,6 +28,9 @@ This blog platform has basic feature for users to post writings (explained below
     * [Content Images](#content-images)
     * [Header Images](#header-images)
     * [Signature](#signature)
+* [Capistrano](#capistrano)
+    * [Capistrano Installation](#capistrano-installation)
+    * [Settings](#settings)
 * [References](#references)
 
 ## Requirements
@@ -152,3 +164,6 @@ At the end of each blog, there’s a signature phrase. Since it does not change 
 * Basic rake/rails tasks: [The Rails Command Line — Ruby on Rails Guides](http://guides.rubyonrails.org/command_line.html)
 * CSS Background-position property: [CSS background-position property](https://www.w3schools.com/cssref/pr_background-position.asp)
 * Carrierwave: [GitHub - carrierwaveuploader/carrierwave: Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks](https://github.com/carrierwaveuploader/carrierwave)
+* capistrano github: [GitHub - capistrano/capistrano: Remote multi-server automation tool](https://github.com/capistrano/capistrano)
+* capistrano puma github: [GitHub - seuros/capistrano-puma: Puma integration for Capistrano](https://github.com/seuros/capistrano-puma)
+  * example: [Deploy your code with Capistrano  •  Beanstalk Guides](http://guides.beanstalkapp.com/deployments/deploy-with-capistrano.html)
